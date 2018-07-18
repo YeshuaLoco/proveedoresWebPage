@@ -31,6 +31,33 @@
     <!-- Switch Fonts via CSS Import system -->
     <link href="css/fonts/opensans-greatvibes.css" rel="stylesheet">
 
+    <link href="css/fonts/poppins.css" rel="stylesheet">
+    <link href="css/fonts/poiret-one.css" rel="stylesheet">
+    <style>
+        .spa_version .nav-menu li a {
+            color: #ffeb3b;
+            font-weight: 600;
+        }
+        .main_header_area.sticky {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+        .spa_version .spa_service_icon {
+            border-radius: 50%;
+            height: 70px;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 2px;
+            width: 70px;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+        }
+    </style>   
 </head>
 
 <body>
@@ -46,20 +73,24 @@
                 <nav id="navigation1" class="navigation bg-transparent">
                     <!-- Logo Area -->
                     <div class="nav-header">
-                        <a class="nav-brand text-mat-pink" href="index.php">CLASSY.</a>
+                        <a class="nav-brand text-mat-yellow" href="#">CLASSY.</a>
                         <div class="nav-toggle"></div>
                     </div>
                     <!-- Main Menus Wrapper -->
                     <div class="nav-menus-wrapper">
-                        <a href="#" class="nav-button btn-pill bg-mat-pink align-to-right">Get Treatment</a>
                         <ul class="nav-menu align-to-right" id="nav">
                             <li class="active"><a href="#home">Inicio</a></li>
                             <li><a href="#about">Acerca de nosotros</a></li>
+                            <li><a href="#offers">Ofertas</a></li>
                             <li><a href="#service">Servicios</a></li>
                             <li><a href="#gallery">Galeria</a></li>
-                            <li><a href="#advisor">Expertos</a></li>
-                            <li><a href="#package">Paquetes</a></li>
-                            <li><a href="#contact">Contactanos</a></li>
+                            <li><a href="#package">Especialidad</a></li>                      
+                            <li><a href="#contact">Contacto</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Hola, quiero contactarme con ustedes!"><i class="fa fa-whatsapp"></i></a>
+                                <a href="#"><i class="fa fa-phone"></i></a>                                
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -90,7 +121,7 @@
                                         <p class=" text-white">Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
                                     </div>
                                     <div class="s-obj" id="btn-one">
-                                        <a href="https://www.youtube.com/watch?v=hQfNtnKm5nA" class="video_btn btn btn-lg btn-mat-pink btn-pill"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Take a Virtual Tour</a>
+                                        <a href="https://www.youtube.com/watch?v=hQfNtnKm5nA" class="video_btn btn btn-lg btn-mat-pink btn-pill"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Ofertas</a>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-3"></div>
@@ -100,38 +131,6 @@
                 </div>
                 <!-- Background Image -->
                 <img class="slidea-background" src="img/bg-img/spa-bg-1.jpg" alt="">
-            </div>
-
-            <!-- Slidea Slide -->
-            <div class="slidea-slide" id="spa_slider_two">
-                <div class="slidea-content slidea-content-center">
-                    <div class="slidea-content-container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-lg-6 ml-lg-auto">
-                                    <div class="text-right">
-                                        <div class="s-obj default-title" id="sub-title-two">
-                                            <h3 class="font-greatvibes midnight_blue">Luxurious Spa Experience</h3>
-                                        </div>
-                                        <div class="s-obj default-title" id="title-two">
-                                            <h2 class="midnight_blue">A Special Spa <span>Treatments</span></h2>
-                                        </div>
-                                        <div class="s-obj default-description midnight_blue" id="description-two">
-                                            <p class="midnight_blue">Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                        </div>
-                                        <div class="s-obj" id="btn-two">
-                                            <a href="#" class="btn btn-lg btn-mat-pink btn-pill">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Background Image -->
-                <img class="slidea-background" src="img/bg-img/bg-white.jpg" alt="">
-                <img class="slidea-layer" data-slidea-src="img/bg-img/spa-bg-2.jpg" src="#" alt="" id="spa-layer-2">
             </div>
         </div>
     </section>
@@ -180,8 +179,155 @@
     </section>
     <!-- ***** About Us Area End ***** -->
 
+   <!-- ***** Trainer Area Start ***** -->
+   <section class="our_advisor_area fitness_version clearfix section_padding_100_70" id="offers">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading Start -->
+                    <div class="section_heading">
+                        <h3>Expert Trainer</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="fitness_advisor_slides">
+                        <div class="single_advisor">
+                            <!-- Single advisor profile thumb -->
+                            <div class="advisor_thumb">
+                                <img src="img/advisor-img/fitness-1.png" alt="">
+                                <!-- Single advisor social link -->
+                                <div class="advisor_social_info">
+                                    <div class="social_icon">
+                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single advisor profile details -->
+                            <div class="single_advisor_details_info">
+                                <h4>Riya Islam</h4>
+                                <p>Senior Trainer</p>
+                                <!-- View More -->
+                                <div class="view_more">
+                                    <a data-target="#advisor_details1" data-toggle="modal" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="single_advisor">
+                            <!-- Single advisor profile thumb -->
+                            <div class="advisor_thumb">
+                                <img src="img/advisor-img/fitness-2.png" alt="">
+                                <!-- Single advisor social link -->
+                                <div class="advisor_social_info">
+                                    <div class="social_icon">
+                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single advisor profile details -->
+                            <div class="single_advisor_details_info">
+                                <h4>Lim Sarah</h4>
+                                <p>Senior Trainer</p>
+                                <!-- View More -->
+                                <div class="view_more">
+                                    <a data-target="#advisor_details1" data-toggle="modal" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="single_advisor">
+                            <!-- Single advisor profile thumb -->
+                            <div class="advisor_thumb">
+                                <img src="img/advisor-img/fitness-3.png" alt="">
+                                <!-- Single advisor social link -->
+                                <div class="advisor_social_info">
+                                    <div class="social_icon">
+                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single advisor profile details -->
+                            <div class="single_advisor_details_info">
+                                <h4>Samantha Islam</h4>
+                                <p>Senior Trainer</p>
+                                <!-- View More -->
+                                <div class="view_more">
+                                    <a data-target="#advisor_details1" data-toggle="modal" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Trainer Area End ***** -->
+
+    <!-- ***** Trainer 1 Details Area Start ***** -->
+    <div role="dialog" tabindex="-1" id="advisor_details1" class="modal fade in animated slideInDown">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Head Start -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="teammodelhead">Riya Islam</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <!-- Modal Body Start -->
+                <div class="modal_body">
+                    <!-- single gallery description start -->
+                    <div class="single_gallery_area text-center p-30">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="team_advisor_thumb">
+                                        <img src="img/advisor-img/fitness-1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <!--  Gallery Details Info -->
+                                    <div class="single_team_advisor_info">
+                                        <!-- Headline -->
+                                        <div class="team_name">
+                                            <h5>Full Name: Riya Islam</h5>
+                                            <h5>Nick Name: Riya</h5>
+                                            <h6>Designation: Trainer</h6>
+                                        </div>
+                                        <!-- Description -->
+                                        <div class="description">
+                                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                                        </div>
+                                        <!-- live preview button -->
+                                        <div class="live_preview">
+                                            <a class="btn btn-pill btn-flat-pumpkin" href="#">Contact with Riya Islam</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Trainer Details Area End ***** -->
+
     <!-- ***** Special Offer Area Start ***** -->
-    <section class="special_offer_area spa_version section_padding_100_70">
+    <section class="special_offer_area spa_version section_padding_100_70" id="xx">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -272,21 +418,6 @@
                 </div>
                 <!--  Why Choose Image Area Start  -->
                 <div class="col-md-6 col-lg-5 ml-lg-auto">
-                    <div class="spa_service_image wow fadeInRight">
-                        <img src="img/bg-img/service-img-1.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row align-items-center">
-                <!--  Why Choose Image Area Start  -->
-                <div class="col-md-6 col-lg-5">
-                    <div class="spa_service_image wow fadeInLeft" data-wow-delay="0.4s">
-                        <img src="img/bg-img/spa-service-img-2.jpg" alt="">
-                    </div>
-                </div>
-                <!--  Why Choose Text Area Start  -->
-                <div class="col-md-6 col-lg-5 ml-lg-auto">
                     <div class="spa_services_text_area second_area">
                         <div class="spa_single_service">
                             <h4>Oil Massage</h4>
@@ -310,12 +441,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- View All Btn -->
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a href="#" class="btn btn-lg btn-mat-pink btn-pill">View All Services</a>
                 </div>
             </div>
         </div>
@@ -536,71 +661,6 @@
         </div>
     </section>
     <!-- ***** Specialist Area End ***** -->
-
-    <!-- ***** Spa Appointment Area Start ***** -->
-    <section class="spa_make_an_appointment_area spa_version section_padding_100_70 jarallax" style="background-image: url(img/bg-img/spa-tes.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="spa_section_heading text-center">
-                        <h2>Make An Appointment</h2>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="spa_make_an_appointment">
-                        <form action="mail.php" method="post">
-                            <!-- Message Input Area Start -->
-                            <div class="contact_input_area">
-                                <div class="row">
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" id="appointment-name" placeholder="Your Name*" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="appointment-email" placeholder="Your E-mail*" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="subject" id="datepicker" placeholder="Booking Date*" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12">
-                                        <div class="form-group down_arrow">
-                                            <select class="form-control">
-                                                <option>Choose Treatments*</option>
-                                                <option>Stone Massage</option>
-                                                <option>Aroma Therapy</option>
-                                                <option>Reflexology</option>
-                                                <option>Oil Massage</option>
-                                                <option>Facial Treatment</option>
-                                                <option>Health Coaching</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-pill btn-lg btn-mat-pink">Booking Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Spa Appointment Area End ***** -->
 
     <!-- ***** Package Area Start ***** -->
     <div class="price_plan_area spa_version section_padding_100_70" id="package">
@@ -924,6 +984,9 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
+                        <div class="footer_bottom">
+                            <p>Made with <i class="fa fa-heart"></i> by <a href="#">DesigningWorld</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -950,13 +1013,26 @@
     <script src="slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
     <script src="slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
     <script src="slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
+     <!-- Slider Active JS  -->
+     <script src="slidea-assets/js/templates/fitness-slider-active.js" type="text/javascript"></script>
     <!-- Plugins js -->
     <script src="js/include-all-plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
     <!-- Slider Active JS  -->
     <script src="slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
-
+    <!-- Google Maps js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk" type="text/javascript"></script>
+    <!-- Google Maps Active js -->
+    <script src="js/google-map/map-active.js"></script>
+    <script>
+        $('.main_header_area.sticky').css('background-color', '#000');
+        $('.spa_version .spa_service_icon').css('color', '#000');
+        $('.spa_version .spa_service_icon').css('background-color', '#ffeb3b');
+        $('.gallery_area.spa_version').css('background-color', '#ffeb3b');    
+        $('.single_advisor').css('background-color', '#ffeb3b');             
+        $('.spa_version .single_advisor_details_info > h4, .spa_version .single_advisor_details_info > p').css('color', '#000'); 
+    </script>
 </body>
 
 </html>

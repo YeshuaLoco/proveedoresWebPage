@@ -1,3 +1,6 @@
+<?php
+require 'services/class.functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +29,11 @@
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Slidea Slider CSS -->
+    <link href="slidea-assets/css/slidea/slidea.css" rel="stylesheet">
+    <link href="slidea-assets/css/slidea/themes/default.css" rel="stylesheet">
+    <link href="slidea-assets/css/slidea/ui/default.css" rel="stylesheet">
+
     <!-- Responsive css -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
@@ -35,89 +43,38 @@
     <!-- REVOLUTION JS FILES -->
     <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
     <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-
-    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-
+    <style>
+        .hosting_version.domain_search_area {
+            position: relative;
+            z-index: 1;
+            background-color: #000;
+        }
+        .hosting_version.domain_search_area .btn.btn-default.submit_btn {
+            background-color: #FFBB00;
+            border: medium none;
+            color: #000;
+            display: inline-block;
+            height: 50px;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            width: 20%;
+        }
+        .hosting_version.domain_search_area .btn.btn-default.submit_btn:hover, .hosting_version.domain_search_area .btn.btn-default.submit_btn:focus {
+            background-color: #FFBB00;
+            color: #fff;
+            box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 
 <body>
-
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="classy-load"></div>
     </div>
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header_area">
-        <div class="main_header_area animated">
-            <div class="container">
-                <nav id="navigation1" class="navigation">
-                    <!-- Logo Area Start -->
-                    <div class="nav-header">
-                    <a class="nav-brand" href="index.php"><img src="img/page/ofertas_white.png" style="height: 70px; width:190px"/></a>
-                        <div class="nav-toggle"></div>
-                    </div>
-                    <!-- Search panel Start -->
-                    <div class="nav-search">
-                        <div class="nav-search-button">
-                            <i class="nav-search-icon"></i>
-                        </div>
-                        <form>
-                            <div class="nav-search-inner">
-                                <input type="search" name="search" placeholder="Type Your Keywords">
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Main Menus Wrapper -->
-                    <div class="nav-menus-wrapper">
-                        <ul class="nav-menu align-to-right">
-                            <li><a href="index.html" target="_self">Inicio</a></li>
-                            <li><a href="#">Categorias</a>
-                                <ul class="nav-dropdown">
-                                    <li><a href="#">Servicios</a>
-                                        <ul class="nav-dropdown">
-                                            <li><a href="index-spa.php" target="_self">Reparaciones Aguilar</a></li>
-                                            <li><a href="index-spa.php" target="_self">Catering World</a></li>
-                                            <li><a href="index-spa.php" target="_self">Motoquero Veloz</a></li>
-                                            <li><a href="index-spa.php" target="_self">Transporte Copacabana</a></li>
-                                            <li><a href="index-spa.php" target="_self">Sonido y &amp; Amplificación </a></li>
-                                            <li><a href="index-spa.php" target="_self">Imprenta</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Entretenimiento</a>
-                                        <ul class="nav-dropdown">
-                                            <li><a href="index-spa.php" target="_self">Animadores de Fiestas Illampu</a></li>
-                                            <li><a href="index-spa.php" target="_self">Eventos Luz</a></li>
-                                            <li><a href="index-spa.php" target="_self">Ganja Music</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Marketing y Publicidad</a>
-                                        <ul class="nav-dropdown">
-                                            <li><a href="coming-soon.php" target="_self">Imprenta Sagitario</a></li>
-                                            <li><a href="coming-soon.php" target="_self">Flame</a></li>
-                                        </ul>
-                                    </li>                                    
-                                </ul>
-                            </li>                                                    
-                            <li><a href="foro.html" target="_target">Foro</a></li>
-                            <li><a href="#contact" target="_self">Contacto</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-
+    <?php
+        include('includes/header.php');
+    ?>
     <!-- >>>>>>>>>>>>>>>> Welcome Area Start <<<<<<<<<<<<<<<< -->
     <div class="welcome_area creative_version" id="home">
         <div class="content">
@@ -207,60 +164,84 @@
     </div>
     <!-- ***** Welcome Area End ***** -->
 
+    <!-- >>>>>>>>>>>>>>>> Search Box Area Start <<<<<<<<<<<<<<<< -->
+    <!-- ***** Domain Search Box Area Start ***** -->
+    <section class="domain_search_area hosting_version section_padding_100" id="domain">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Search Title -->
+                    <div class="search_text">
+                        <h4>Encuentra a tus Proveedores</h4>
+                    </div>
+                    <!-- Search Form Start -->
+                    <form action="#" class="domain_form">
+                        <div class="form-group">
+                            <input type="search" name="search" class="form-control search_box" placeholder="Encuentra tu proveedor o categoría favorita">
+                        </div>
+                        <button type="submit" class="btn btn-default submit_btn">Buscar</button>                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Domain Search Box Area End ***** -->
+    <!-- ***** Search Box Area End ***** -->
+
     <!-- ***** Welcome Area Start ***** -->
-    <section class="welcome_area spa_version" id="offer">
+    <section class="welcome_area height_600" id="home">
         <div class="slidea" id="slidea">
 
             <!-- Slidea Slide -->
-            <div class="slidea-slide" id="spa_slider_one">
-                <div class="slidea-overlay s-obj" data-slidea-start="0" data-slidea="opacity 0"></div>
+            <div class="slidea-slide" id="default_slidea_slide_one">
                 <div class="slidea-content slidea-content-center">
                     <div class="slidea-content-container">
                         <div class="container">
                             <div class="row">
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <div class="classy-single-feature m-bottom-30 p-15 bg-gray">
-                                        <div class="featured-image">
-                                            <img src="img/services-img/service-4.jpg" alt="">
+                                <div class="col-12 col-md-6">
+                                    <div class="text-left">
+                                        <div class="s-obj default-title" id="title-one">
+                                            <h2>Create your website <span>beautifully</span></h2>
                                         </div>
-                                        <h5 class="m-top-15">Back-end Service</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque provident, itaque accusantium sunt. Voluptates, esse!</p>
-                                        <a href="#" class="btn btn-pill btn-sm btn-warning">Learn More</a>
+                                        <div class="s-obj default-description midnight_blue" id="description-one">
+                                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                                        </div>
+                                        <div class="s-obj" id="btn-one">
+                                            <a href="#" class="btn default-button">Discover More</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-3"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Background Image -->
-                <img class="slidea-background" src="img/bg-img/spa-bg-1.jpg" alt="">
+                <img class="slidea-background" src="img/bg-img/bg-9.jpg" alt="">
             </div>
 
             <!-- Slidea Slide -->
-            <div class="slidea-slide" id="spa_slider_two">
+            <div class="slidea-slide" id="default_slidea_slide_two">
                 <div class="slidea-content slidea-content-center">
                     <div class="slidea-content-container">
                         <div class="container">
                             <div class="row">
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <div class="classy-single-feature m-bottom-30 p-15 bg-gray">
-                                        <div class="featured-image">
-                                            <img src="img/services-img/service-4.jpg" alt="">
-                                        </div>
-                                        <h5 class="m-top-15">Back-end Service</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque provident, itaque accusantium sunt. Voluptates, esse!</p>
-                                        <a href="#" class="btn btn-pill btn-sm btn-warning">Learn More</a>
+                                <div class="col-12 col-md-6 ml-md-auto text-right">
+                                    <div class="s-obj default-title" id="title-two">
+                                        <h2>Start the day with <span>Classy</span></h2>
+                                    </div>
+                                    <div class="s-obj default-description" id="description-two">
+                                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                                    </div>
+                                    <div class="s-obj" id="btn-two">
+                                        <a href="#" class="btn default-button">Learn More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- Background Image -->
-                <img class="slidea-background" src="img/bg-img/bg-white.jpg" alt="">
-                <img class="slidea-layer" data-slidea-src="img/bg-img/spa-bg-2.jpg" src="#" alt="" id="spa-layer-2">
+                <img class="slidea-background" src="img/bg-img/bg-15.jpg" alt="">
             </div>
         </div>
     </section>
@@ -590,6 +571,8 @@
     <script src="slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
     <script src="slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
     <script src="slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
+    <!-- Slider Active JS  -->
+    <script src="slidea-assets/js/templates/default-slider-active.js" type="text/javascript"></script>
     <!-- Plugins js -->
     <script src="js/include-all-plugins.js"></script>
     <!-- Active js -->
