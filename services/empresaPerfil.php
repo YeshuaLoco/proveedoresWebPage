@@ -1,12 +1,12 @@
 <?php
-require 'services/class.functions.php';
+require 'class.functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php 
     $proveedoresClass  = new proveedoresClass();
     $arrayProveedores = array();
-    $arrayProveedores = $proveedoresClass->getProveedores(2);
+    $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
     //var_dump($arrayProveedores[0]['PRO_NOMBRE']);
 ?>
 <head>
@@ -20,27 +20,27 @@ require 'services/class.functions.php';
     <title><?php echo $arrayProveedores[0]['PRO_NOMBRE'] ?></title>
 
     <!-- Favicon  -->
-    <link rel="shortcut icon" href="img/page/e.png">
+    <link rel="shortcut icon" href="../img/page/e.png">
 
     <!-- ***** All CSS Files ***** -->
 
     <!-- Slidea Slider CSS -->
-    <link href="slidea-assets/css/slidea/slidea.css" rel="stylesheet">
-    <link href="slidea-assets/css/slidea/themes/default.css" rel="stylesheet">
-    <link href="slidea-assets/css/slidea/ui/default.css" rel="stylesheet">
+    <link href="../slidea-assets/css/slidea/slidea.css" rel="stylesheet">
+    <link href="../slidea-assets/css/slidea/themes/default.css" rel="stylesheet">
+    <link href="../slidea-assets/css/slidea/ui/default.css" rel="stylesheet">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/core-style.css">
+    <link rel="stylesheet" href="../style.css">
 
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive/responsive.css">
+    <link rel="stylesheet" href="../css/responsive/responsive.css">
 
     <!-- Switch Fonts via CSS Import system -->
-    <link href="css/fonts/opensans-greatvibes.css" rel="stylesheet">
+    <link href="../css/fonts/opensans-greatvibes.css" rel="stylesheet">
 
-    <link href="css/fonts/poppins.css" rel="stylesheet">
-    <link href="css/fonts/poiret-one.css" rel="stylesheet">
+    <link href="../css/fonts/poppins.css" rel="stylesheet">
+    <link href="../css/fonts/poiret-one.css" rel="stylesheet">
     <style>
         .fitness_version .advisor_thumb:after {
             background-color: orange;
@@ -598,34 +598,34 @@ require 'services/class.functions.php';
     <!-- ***** All jQuery Plugins ***** -->
 
     <!-- jQuery (necessary for all JavaScript plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="../js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
     <!-- Slidea Slider JS -->
-    <script src="slidea-assets/js/gsap/tweenlite.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/gsap/plugins/css.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/gsap/easing/easepack.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/animus/animus.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/animus/presets/default.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/hammer/hammer.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/mousewheel/mousewheel.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/gsap/tweenlite.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/gsap/plugins/css.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/gsap/easing/easepack.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/animus/animus.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/animus/presets/default.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/hammer/hammer.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/mousewheel/mousewheel.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
      <!-- Slider Active JS  -->
-     <script src="slidea-assets/js/templates/fitness-slider-active.js" type="text/javascript"></script>
+     <script src="../slidea-assets/js/templates/fitness-slider-active.js" type="text/javascript"></script>
     <!-- Plugins js -->
-    <script src="js/include-all-plugins.js"></script>
+    <script src="../js/include-all-plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="../js/active.js"></script>
     <!-- Slider Active JS  -->
-    <script src="slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
     <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk" type="text/javascript"></script>
+    <script src="../https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk" type="text/javascript"></script>
     <!-- Google Maps Active js -->
-    <script src="js/google-map/map-active.js"></script>
+    <script src="../js/google-map/map-active.js"></script>
     <script>
         $('.main_header_area.sticky').css('background-color', '#000');
         $('.spa_version .spa_service_icon').css('color', '#000');
