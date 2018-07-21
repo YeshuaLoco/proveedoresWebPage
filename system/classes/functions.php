@@ -76,7 +76,7 @@ $result  = $con->query($query);
 if (!file_exists('../../' . $proNombreCarpeta)) {
     mkdir('../../' . $proNombreCarpeta, 0777, true);
 }
-
+// Crea Carpeta Empresa
 $myfile = fopen("../../" . $proNombreCarpeta . "/index.php", "w") or die("Unable to open file!");
 $txt = '<?php session_start(); $_SESSION["proUid"] = ' . $last_id . '; include("../services/empresaPerfil.php");?>';
 fwrite($myfile, $txt);
