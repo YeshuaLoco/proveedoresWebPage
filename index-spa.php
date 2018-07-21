@@ -1,6 +1,14 @@
+<?php
+require 'services/class.functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+    $proveedoresClass  = new proveedoresClass();
+    $arrayProveedores = array();
+    $arrayProveedores = $proveedoresClass->getProveedores(2);
+    //var_dump($arrayProveedores[0]['PRO_NOMBRE']);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -9,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Classy - Multipurpose Template | Spa &amp; Beauty</title>
+    <title><?php echo $arrayProveedores[0]['PRO_NOMBRE'] ?></title>
 
     <!-- Favicon  -->
     <link rel="shortcut icon" href="img/page/e.png">
@@ -34,6 +42,24 @@
     <link href="css/fonts/poppins.css" rel="stylesheet">
     <link href="css/fonts/poiret-one.css" rel="stylesheet">
     <style>
+        .fitness_version .advisor_thumb:after {
+            background-color: orange;
+            border-bottom: 1px solid #222;
+            bottom: 0;
+            content: "";
+            height: 50px;
+            left: 25%;
+            position: absolute;
+            -webkit-transform: skewX(-45deg);
+            transform: skewX(-45deg);
+            width: 100%;
+
+        }
+        .spa_version .gallery_info p, .spa_version .gallery_info h5, .gallery_area.spa_version .spa_section_heading p, .gallery_area.spa_version .spa_section_heading h2, .spa_version .footer_bottom p > i, .spa_version .footer_bottom p > a:hover {
+            color:#000 !important;
+        }
+
+
         .spa_version .nav-menu li a {
             color: #ffeb3b;
             font-weight: 600;
@@ -45,6 +71,7 @@
             left: 0;
             z-index: 9999;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            background-color: #000;
         }
         .spa_version .spa_service_icon {
             border-radius: 50%;
@@ -73,7 +100,7 @@
                 <nav id="navigation1" class="navigation bg-transparent">
                     <!-- Logo Area -->
                     <div class="nav-header">
-                        <a class="nav-brand text-mat-yellow" href="#">CLASSY.</a>
+                        <a class="nav-brand text-mat-yellow" href="#"><?php echo strtoupper(utf8_encode($arrayProveedores[0]['PRO_NOMBRE'])) ?>.</a>
                         <div class="nav-toggle"></div>
                     </div>
                     <!-- Main Menus Wrapper -->
@@ -87,9 +114,9 @@
                             <li><a href="#package">Especialidad</a></li>                      
                             <li><a href="#contact">Contacto</a></li>
                             <li>
-                                <a href="#"><i class="fa fa-facebook-square"></i></a>
-                                <a href="https://api.whatsapp.com/send?phone=<?php echo WHATSAPP; ?>&text=Hola, quiero contactarme con ustedes!"><i class="fa fa-whatsapp"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>                                
+                                <a href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>"><i class="fa fa-facebook-square"></i></a>
+                                <a href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!"><i class="fa fa-whatsapp"></i></a>
+                                <a href="<?php echo $arrayProveedores[0]['PRO_TELEFONOS']; ?>"><i class="fa fa-phone"></i></a>                                
                             </li>
                         </ul>
                     </div>
@@ -104,24 +131,22 @@
         <div class="slidea" id="slidea">
 
             <!-- Slidea Slide -->
-            <div class="slidea-slide" id="spa_slider_one">
-                <div class="slidea-overlay s-obj" data-slidea-start="0" data-slidea="opacity 0"></div>
+            <div class="slidea-slide" id="imgen">
+                <div class="slidea-overlay s-obj" ></div>
                 <div class="slidea-content slidea-content-center">
                     <div class="slidea-content-container">
                         <div class="container">
                             <div class="row">
                                 <div class="col-12 col-lg-6 ml-lg-auto text-center">
                                     <div class="s-obj default-title" id="sub-title-one">
-                                        <h3 class="font-greatvibes text-white">Luxurious Spa Experience</h3>
+                                        <h3 class="font-greatvibes text-white">Maprial</h3>
                                     </div>
                                     <div class="s-obj default-title" id="title-one">
-                                        <h2 class=" text-white">Top Quality Treatments for Your Body and Mind</h2>
+                                        <h2 class=" text-white">Lamejor productora</h2>
                                     </div>
-                                    <div class="s-obj default-description" id="description-one">
-                                        <p class=" text-white">Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                    </div>
+                                    
                                     <div class="s-obj" id="btn-one">
-                                        <a href="https://www.youtube.com/watch?v=hQfNtnKm5nA" class="video_btn btn btn-lg btn-mat-pink btn-pill"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Ofertas</a>
+                                        <a href="#offers" class="video_btn btn btn-lg btn-mat-yellow btn-pill" style="color:#000"></i>Ofertas</a>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-3"></div>
@@ -130,7 +155,7 @@
                     </div>
                 </div>
                 <!-- Background Image -->
-                <img class="slidea-background" src="img/bg-img/spa-bg-1.jpg" alt="">
+                <img class="slidea-background" src="system/<?php echo $arrayProveedores[0]['PRO_IMAGEN_PORTADA']; ?>" alt="">
             </div>
         </div>
     </section>
@@ -140,44 +165,59 @@
     <section class="spa_about_us_area spa_version section_padding_100_0" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="spa_about_img item" style="background-image: url(img/bg-img/spa-beauty.png);"></div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="spa_about_text item">
-                        <div class="spa_section_heading">
-                            <h2>Award Winning Relux Spa</h2>
-                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                        </div>
-                        <!-- Spa About Text -->
-                        <div class="spa_about_text_content">
-                            <i class="fa fa-bath" aria-hidden="true"></i>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat accusantium corporis quod exercitationem sint quidem magni nobis ducimus, eveniet, vel praesentium aut! Consectetur fugiat culpa dolor harum laboriosam laudantium, quo expedita! Quasi ut quos, distinctio repellat, a vero, nobis ipsam quod ab praesentium molestias nihil! Impedit, et ipsam provident esse.</p>
-                            <div class="spa_cool_facts_area">
-                                <div class="single_cool_facts">
-                                    <i class="fa fa-trophy" aria-hidden="true"></i>
-                                    <h4 class="counter">5</h4>
-                                    <p>Award</p>
-                                </div>
-                                <div class="single_cool_facts">
-                                    <i class="fa fa-users" aria-hidden="true"></i>
-                                    <h4 class="counter">1585</h4>
-                                    <p>Clients</p>
-                                </div>
-                                <div class="single_cool_facts">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h4 class="counter">36</h4>
-                                    <p>Specialist</p>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, obcaecati. Ratione voluptatibus ab veritatis soluta eaque tenetur consectetur sit ad minus eveniet sunt enim consequuntur placeat, magnam, nulla maxime repudiandae.</p>
-                        </div>
+                <div class="col-12">
+                    <div class="spa_section_heading">
+                            <h2>Acrca de Nosotros</h2>
+                            <p>Maprial, líder en Cochabamba.</p>
                     </div>
+                    <?php echo utf8_encode($arrayProveedores[0]['PRO_DESCRIPCION']);?>
                 </div>
             </div>
         </div>
     </section>
     <!-- ***** About Us Area End ***** -->
+
+     <!-- ***** Our Classes Area Start ***** -->
+     <section class="our_classes_area fitness_version section_padding_100" id="classes">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section_heading">
+                        <h3>Ultimas ofertas</h3>
+                    </div>
+                </div>
+            </div>
+            <?php
+                $arrayOfertas = array();
+                $arrayOfertas = $proveedoresClass->getPromociones(2);
+                for ($j=0; $j < count($arrayOfertas); $j++) { 
+            ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="fitness_class_slides">
+                        <!-- Single Class Slide -->
+                        <div class="single_class_slide">
+                            <img src="system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
+                            <div class="time">
+                                <p>2x1</p>
+                            </div>
+                            <div class="title">
+                                <h4><?php echo utf8_encode($arrayOfertas[$j]['PP_TITULO']); ?></h4>
+                            </div>
+                            <div class="trainer">
+                            </div>
+                            <div class="description">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, at.</p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+                <?php } ?>
+        </div>
+    </section>
+    <!-- ***** Our Classes Area End ***** -->
 
    <!-- ***** Trainer Area Start ***** -->
    <section class="our_advisor_area fitness_version clearfix section_padding_100_70" id="offers">
@@ -186,7 +226,7 @@
                 <div class="col-12">
                     <!-- Section Heading Start -->
                     <div class="section_heading">
-                        <h3>Expert Trainer</h3>
+                        <h3>Ofertas</h3>
                     </div>
                 </div>
             </div>
@@ -194,83 +234,35 @@
             <div class="row">
                 <div class="col-12">
                     <div class="fitness_advisor_slides">
+                        <?php
+                            $arrayOfertas = array();
+                            $arrayOfertas = $proveedoresClass->getPromociones(2);
+                            for ($j=0; $j < count($arrayOfertas); $j++) { 
+                        ?>
                         <div class="single_advisor">
                             <!-- Single advisor profile thumb -->
                             <div class="advisor_thumb">
-                                <img src="img/advisor-img/fitness-1.png" alt="">
-                                <!-- Single advisor social link -->
-                                <div class="advisor_social_info">
+                                <img src="system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
+                                <div class="advisor_social_info" style="background-color: orange;">
                                     <div class="social_icon">
-                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                        <a><i ><b>2x1</b></i></a>
                                     </div>
                                 </div>
                             </div>
                             <!-- Single advisor profile details -->
                             <div class="single_advisor_details_info">
-                                <h4>Riya Islam</h4>
-                                <p>Senior Trainer</p>
+                            <h3>- 50%</h3>
+                                <h4><?php echo utf8_encode($arrayOfertas[$j]['PP_TITULO']); ?></h4>
                                 <!-- View More -->
                                 <div class="view_more">
                                     <a data-target="#advisor_details1" data-toggle="modal" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="single_advisor">
-                            <!-- Single advisor profile thumb -->
-                            <div class="advisor_thumb">
-                                <img src="img/advisor-img/fitness-2.png" alt="">
-                                <!-- Single advisor social link -->
-                                <div class="advisor_social_info">
-                                    <div class="social_icon">
-                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single advisor profile details -->
-                            <div class="single_advisor_details_info">
-                                <h4>Lim Sarah</h4>
-                                <p>Senior Trainer</p>
-                                <!-- View More -->
-                                <div class="view_more">
-                                    <a data-target="#advisor_details1" data-toggle="modal" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single_advisor">
-                            <!-- Single advisor profile thumb -->
-                            <div class="advisor_thumb">
-                                <img src="img/advisor-img/fitness-3.png" alt="">
-                                <!-- Single advisor social link -->
-                                <div class="advisor_social_info">
-                                    <div class="social_icon">
-                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single advisor profile details -->
-                            <div class="single_advisor_details_info">
-                                <h4>Samantha Islam</h4>
-                                <p>Senior Trainer</p>
-                                <!-- View More -->
-                                <div class="view_more">
-                                    <a data-target="#advisor_details1" data-toggle="modal" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                    }
+                        ?>
+                        
                     </div>
                 </div>
             </div>
@@ -284,7 +276,7 @@
             <div class="modal-content">
                 <!-- Modal Head Start -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="teammodelhead">Riya Islam</h5>
+                    <h5 class="modal-title" id="teammodelhead"><?php echo utf8_encode($arrayOfertas[0]['PP_TITULO']); ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <!-- Modal Body Start -->
@@ -295,25 +287,20 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="team_advisor_thumb">
-                                        <img src="img/advisor-img/fitness-1.png" alt="">
+                                        <img src="system/<?php echo $arrayOfertas[0]['PP_IMAGEN']; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <!--  Gallery Details Info -->
                                     <div class="single_team_advisor_info">
-                                        <!-- Headline -->
-                                        <div class="team_name">
-                                            <h5>Full Name: Riya Islam</h5>
-                                            <h5>Nick Name: Riya</h5>
-                                            <h6>Designation: Trainer</h6>
-                                        </div>
+                                                                                  
                                         <!-- Description -->
                                         <div class="description">
-                                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                                            <p><?php echo utf8_encode($arrayOfertas[0]['PP_DESCRIPCION']); ?></p>
                                         </div>
                                         <!-- live preview button -->
                                         <div class="live_preview">
-                                            <a class="btn btn-pill btn-flat-pumpkin" href="#">Contact with Riya Islam</a>
+                                            <a class="btn btn-pill btn-flat-pumpkin" href="#">Contactate</a>
                                         </div>
                                     </div>
                                 </div>
@@ -326,57 +313,43 @@
     </div>
     <!-- ***** Trainer Details Area End ***** -->
 
-    <!-- ***** Special Offer Area Start ***** -->
-    <section class="special_offer_area spa_version section_padding_100_70" id="xx">
-        <div class="container">
+    <!-- >>>>>>>>>>>>>>>> Project area start <<<<<<<<<<<<<<<< -->
+    <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="spa_section_heading text-center">
-                        <h2>Special Offers</h2>
+                    <div class="spa_section_heading text-center" style="color:black !important">
+                        <h2>Gallery</h2>
                         <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Single Special Offer Start -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single_special_offer item" style="background-image: url(img/bg-img/spa-offer-big-1.jpg);">
-                        <div class="single_special_offer_img">
-                            <img src="img/bg-img/spa-offer-1.jpg" alt="">
-                        </div>
-                        <h4>Full Message</h4>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                        <a href="#" class="btn default-button btn-lg bg-pink">25% Off Just $29</a>
-                    </div>
-                </div>
-                <!-- Single Special Offer Start -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single_special_offer item active jarallax" style="background-image: url(img/bg-img/spa-offer-big-2.jpg);">
-                        <div class="single_special_offer_img">
-                            <img src="img/bg-img/spa-offer-2.jpg" alt="">
-                        </div>
-                        <h4>Couple Message</h4>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                        <a href="#" class="btn default-button btn-lg bg-pink">25% Off Just $29</a>
-                    </div>
-                </div>
-                <!-- Single Special Offer Start -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single_special_offer item" style="background-image: url(img/bg-img/spa-offer-big-3.jpg);">
-                        <div class="single_special_offer_img">
-                            <img src="img/bg-img/spa-offer-3.jpg" alt="">
-                        </div>
-                        <h4>Oil Message</h4>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                        <a href="#" class="btn default-button btn-lg bg-pink">25% Off Just $29</a>
                     </div>
                 </div>
             </div>
         </div>
+    <section class="creative_version gallery_area creative_gallery_slider dark clearfix" id="gallery">
+        
+        <?php
+            $idProveedor = 2;
+            $arrayProveedoresGaleria = array();
+            $arrayProveedoresGaleria = $proveedoresClass->getProveedoresGaleria($idProveedor);
+            for ($j=0; $j < count($arrayProveedoresGaleria); $j++) {                                             
+        ?>
+        <!-- Single gallery Item Start -->
+        <div class="single_gallery_item app">
+            <img src="system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>" alt="">
+            <!-- Single gallery Item hover caption -->
+            <div class="hover_overlay">
+                <div class="classy-table">
+                    <div class="classy-table-cell">
+                        <div class="more_details text-center">
+                            <a class="gallery_img text-white" href="system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>"><i class="pe-7s-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
     </section>
-    <!-- ***** Special Offer Area End ***** -->
-
+    <!-- >>>>>>>>>>>>>>>> Project area end <<<<<<<<<<<<<<<< -->
+   
     <!-- ***** Spa Service Area Start ***** -->
     <section class="spa_version spa_services_area section_padding_100" id="service">
         <div class="container">
@@ -446,222 +419,8 @@
         </div>
     </section>
     <!-- ***** Spa Service Area End ***** -->
-
-    <!-- ***** Project area start ***** -->
-    <section class="gallery_area clearfix spa_version section_padding_100" id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="spa_section_heading text-center">
-                        <h2>Gallery</h2>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery Menu -->
-        <div class="gallery_menu">
-            <div class="text-center portfolio-menu">
-                <button class="active btn btn-md" type="button" data-filter="*">All</button>
-                <button class="btn btn-md" type="button" data-filter=".facial">Facial</button>
-                <button class="btn btn-md" type="button" data-filter=".age">Age Eraser</button>
-                <button class="btn btn-md" type="button" data-filter=".make">Makeover</button>
-                <button class="btn btn-md" type="button" data-filter=".hair">Hair Treatment</button>
-            </div>
-        </div>
-
-        <div class="gallery_full_width_images_area clearfix">
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item make wow fadeInUp">
-                <img src="img/gallery/spa-p-1.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-1.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item age wow fadeInUp">
-                <img src="img/gallery/spa-p-2.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-2.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item hair wow fadeInUp">
-                <img src="img/gallery/spa-p-3.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-3.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item age wow fadeInUp">
-                <img src="img/gallery/spa-p-4.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-4.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item facial makeup wow fadeInUp">
-                <img src="img/gallery/spa-p-5.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-5.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item make wow fadeInUp">
-                <img src="img/gallery/spa-p-6.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-6.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single gallery Item Start -->
-            <div class="single_gallery_item age wow fadeInUp">
-                <img src="img/gallery/spa-p-7.jpg" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="classy-table">
-                        <div class="classy-table-cell">
-                            <div class="gallery_info">
-                                <h5>Creative Work</h5>
-                                <p>Classy Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image_zoom_in">
-                        <a class="gallery_img" href="img/gallery/spa-p-7.jpg"><i class="fa fa-camera" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- View All Btn -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center m-top-50">
-                    <a href="#" class="btn btn-flat-clouds btn-pill">View All Works</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Project area end ***** -->
-
-    <!-- ***** Specialist Area Start ***** -->
-    <section class="our_advisor_area spa_version clearfix section_padding_100_70" id="advisor">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="spa_section_heading text-center">
-                        <h2>Our Speacialist</h2>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="single_advisor wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="spa_specialist_img">
-                            <img src="img/advisor-img/spa-1.jpg" alt="">
-                        </div>
-                        <!-- Single advisor profile details -->
-                        <div class="single_advisor_details_info">
-                            <h4>Samantha S.</h4>
-                            <p>Beauty Expert</p>
-                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="single_advisor wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="spa_specialist_img">
-                            <img src="img/advisor-img/spa-2.jpg" alt="">
-                        </div>
-                        <!-- Single advisor profile details -->
-                        <div class="single_advisor_details_info">
-                            <h4>Naznin Niloy</h4>
-                            <p>Hair Expert</p>
-                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- ***** Specialist Area End ***** -->
-
+    
+    
     <!-- ***** Package Area Start ***** -->
     <div class="price_plan_area spa_version section_padding_100_70" id="package">
         <div class="container">
@@ -827,172 +586,14 @@
         </div>
     </div>
     <!-- ***** Package Area End ***** -->
-
-    <!-- ***** Testimonial Area Start ***** -->
-    <div class="testimonial_area spa_version section_padding_100 jarallax" style="background-image: url(img/bg-img/spa-tes.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="spa_section_heading text-center">
-                        <h2>Happy Clients</h2>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="testimonials_area">
-                        <div class="testimonials">
-
-                            <!-- Single testimonial area start  -->
-                            <div class="single_testimonial_area">
-                                <!-- Single testimonial thumb  -->
-                                <div class="testimonial_author_thumb">
-                                    <img src="img/advisor-img/tes-1.jpg" alt="">
-                                    <i class="fa fa-quote-right" aria-hidden="true"></i>
-                                </div>
-                                <!-- Single testimonial text  -->
-                                <div class="testimonial_text">
-                                    <p>Theme is very good. Support is fast &amp; helpful. Thank you.</p>
-                                </div>
-                                <div class="testimonial_author_name">
-                                    <h5>Ekinoxbilisim</h5>
-                                    <h6>WrapBootstrap User</h6>
-                                </div>
-                            </div>
-
-                            <!-- Single testimonial area start  -->
-                            <div class="single_testimonial_area">
-                                <!-- Single testimonial thumb  -->
-                                <div class="testimonial_author_thumb">
-                                    <img src="img/advisor-img/tes-1.jpg" alt="">
-                                    <i class="fa fa-quote-right" aria-hidden="true"></i>
-                                </div>
-                                <!-- Single testimonial text  -->
-                                <div class="testimonial_text">
-                                    <p>Fast, neat and beautiful. Nailed it!</p>
-                                </div>
-                                <div class="testimonial_author_name">
-                                    <h5>Thebigcahuna</h5>
-                                    <h6>WrapBootstrap User</h6>
-                                </div>
-                            </div>
-
-                            <!-- Single testimonial area start  -->
-                            <div class="single_testimonial_area">
-                                <!-- Single testimonial thumb  -->
-                                <div class="testimonial_author_thumb">
-                                    <img src="img/advisor-img/tes-1.jpg" alt="">
-                                    <i class="fa fa-quote-right" aria-hidden="true"></i>
-                                </div>
-                                <!-- Single testimonial text  -->
-                                <div class="testimonial_text">
-                                    <p>All perfect. Great template. Thanks!</p>
-                                </div>
-                                <div class="testimonial_author_name">
-                                    <h5>Creativitae</h5>
-                                    <h6>WrapBootstrap User</h6>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+   
+    <div class="map_contact_address_area">
+        <!-- Map Area Start -->
+        <div class="map_area" id="googleMap"></div>
     </div>
-    <!-- ***** Testimonial Area End ***** -->
+    <!-- ***** Message Now Area Start ***** -->   
 
-    <!-- ***** Message Now Area Start ***** -->
-    <section class="message_now_area section_padding_100_70" id="contact">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-9">
-                    <!-- Section Heading Start -->
-                    <div class="spa_section_heading text-center">
-                        <h2>Get In Touch</h2>
-                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                    </div>
-                    <!-- Section Heading End -->
-
-                    <div class="contact_from">
-                        <form action="mail.php" method="post" id="main_contact_form">
-                            <!-- Message Input Area Start -->
-                            <div class="contact_input_area">
-                                <div id="success_fail_info"></div>
-                                <div class="row">
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Your E-mail" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Your Subject" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="number" id="number" placeholder="Your Number *" required>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Your Message *" required></textarea>
-                                        </div>
-                                    </div>
-                                    <!-- Single Input Area Start -->
-                                    <div class="col-12 text-center">
-                                        <input type="submit" class="btn btn-mat-pink btn-pill btn-lg" value="Get Touch">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Message Now Area Start ***** -->
-
-    <!-- ***** Footer Area Start ***** -->
-    <footer class="footer_area spa_version">
-        <!-- Bottom Footer Area Start -->
-        <div class="footer_bottom_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="social_links_area">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="footer_bottom">
-                            <p>Made with <i class="fa fa-heart"></i> by <a href="#">DesigningWorld</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ***** Footer Area End ***** -->
+    
 
     <!-- ***** All jQuery Plugins ***** -->
 

@@ -5,14 +5,14 @@
 </head>
 <body>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?client=YOUR_CLIENT_ID&v=3.32&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBKB0WBrYP2v_xR6ZsA6XAmHqJwS-VIpo&v=3.32&callback=initMap"></script>
 <script type="text/javascript">
     var markers = [
         {
-            "title": 'Alibaug',
+            "title": 'Pollos',
             "lat": '18.641400',
             "lng": '72.872200',
-            "description": 'Alibaug is a coastal town and a municipal council in Raigad District in the Konkan region of Maharashtra, India.'
+            "description": 'Pollos Copacabana'
         },
         {
             "title": 'Lonavla',
@@ -66,6 +66,8 @@
                 animation: google.maps.Animation.DROP
             });
             (function (marker, data) {
+                console.log(marker);
+                console.log(data);
                 google.maps.event.addListener(marker, "click", function (e) {
                     infoWindow.setContent(data.description);
                     infoWindow.open(map, marker);

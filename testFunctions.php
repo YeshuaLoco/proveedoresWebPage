@@ -6,8 +6,8 @@ require 'services/class.functions.php';
 $proveedoresClass  = new proveedoresClass();
 $arrayCategories = array();
 $arrayCategories = $proveedoresClass->getCategories();
-echo("Categorias") . "<br>";
-var_dump($arrayCategories);
+//echo("Categorias") . "<br>";
+//var_dump($arrayCategories);
 //******************************************************
 echo "<br>";
 //*****************************************************
@@ -15,9 +15,9 @@ echo "<br>";
 //*****************************************************
 $proveedoresClass  = new proveedoresClass();
 $arrayProveedores = array();
-$arrayProveedores = $proveedoresClass->getProveedores();
-//echo("Proveedores") . "<br>";
-//var_dump($arrayProveedores);
+$arrayProveedores = $proveedoresClass->getProveedores(2);
+/*echo("Proveedores") . "<br>";
+var_dump($arrayProveedores);*/
 //******************************************************
 echo "<br>";
 //*****************************************************
@@ -29,6 +29,7 @@ $arrayProveedoresCategorias = array();
 $arrayProveedoresCategorias = $proveedoresClass->getProveedoresCategorias($idProveedor);
 //echo("Proveedore - Categoria") . "<br>";
 //var_dump($arrayProveedoresCategorias);
+echo "<br>";
 //*****************************************************
 // PROVEEDORES - GALERIA
 //*****************************************************
@@ -36,8 +37,9 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayProveedoresGaleria = array();
 $arrayProveedoresGaleria = $proveedoresClass->getProveedoresGaleria($idProveedor);
-echo("Proveedor - Galeria") . "<br>";
-var_dump($arrayProveedoresGaleria);
+//echo("Proveedor - Galeria") . "<br>";
+//var_dump($arrayProveedoresGaleria);
+echo "<br>";
 //*****************************************************
 // PROVEEDORES - PROMOCIONES
 //*****************************************************
@@ -45,7 +47,26 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayProveedoresPromociones = array();
 $arrayProveedoresPromociones = $proveedoresClass->getProveedoresPromociones($idProveedor);
-echo("Proveedor - Promociones") . "<br>";
-var_dump($arrayProveedoresPromociones);
-//******************************************************
+//echo("Proveedor - Promociones") . "<br>";
+//var_dump($arrayProveedoresPromociones);
+echo "<br>";
+//*****************************************************
+// PROVEEDORES - ppor categoria
+//*****************************************************
+$proveedoresClass  = new proveedoresClass();
+$uidCategoria = 6;
+$arrayProveedoresPorCategoria = array();
+$arrayProveedoresPorCategoria = $proveedoresClass->getProveedoresPorCategoria($uidCategoria);
+//echo("Proveedor Por Categoria") . "<br>";
+//var_dump($arrayProveedoresPorCategoria);
+//*****************************************************
+// PROMOCIONES
+//*****************************************************
+$proveedoresClass  = new proveedoresClass();
+$idProveedor = 2;
+$arrayPromociones = array();
+$arrayPromociones = $proveedoresClass->getPromociones($idProveedor);
+echo("PROMOCIONES") . "<br>";
+var_dump($arrayPromociones);
+echo "<br>";
 ?>

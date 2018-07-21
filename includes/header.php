@@ -21,7 +21,9 @@
                                 for ($i=0;$i<count($arrayCategories);$i++) {                                
                                 ?>
                                     <li><a href="#"><?php echo utf8_encode($arrayCategories[$i]['CAT_NOMBRE']);  ?></a>
-
+                                        <ul class="nav-dropdown">
+                                            <li><a href="index-spa.php" target="_self">Maprial</a></li>
+                                        </ul>
                                     </li>
                                 <?php
                                 }
@@ -53,7 +55,7 @@
                                     -->                                
                                 </ul>
                             </li>                                                    
-                            <li><a href="foro.php" target="_target">Foro</a></li>
+                            <li><a href="foro.php" target="_target">Productos</a></li>
                             <li><a href="#contact" target="_self">Contacto</a></li>
                         </ul>
                     </div>

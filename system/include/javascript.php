@@ -10,6 +10,19 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+
+    <script src="js/colorpicker/dist/js/bootstrap-colorpicker.js"></script>
+
+    <script>
+    $(function () {
+      $('#proColorFondo').colorpicker();
+    });
+
+    $(function () {
+      $('#proColorLetras').colorpicker();
+    });
+    </script>
+
     <script type="text/javascript">
         /*
         function guardarFormulario(){

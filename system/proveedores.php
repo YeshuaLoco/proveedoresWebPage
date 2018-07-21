@@ -22,12 +22,14 @@ include('include/header.php');
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
+      <!--
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
+      -->
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
@@ -45,6 +47,7 @@ include('include/header.php');
                   <th>Nombre</th>
                   <th>Estado</th>
                   <th></th>
+                  <th></th>
                   <th></th>                  
                 </tr>
               </thead>
@@ -53,6 +56,7 @@ include('include/header.php');
                   <th>Logo</th>
                   <th>Nombre</th>
                   <th>Estado</th>
+                  <th></th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -65,6 +69,7 @@ include('include/header.php');
                   <td><img width="50px" height="50px" src="<?php echo $arrayProveedores[$i]['PRO_IMAGEN_LOGO']; ?>"></td>
                   <td><?php echo $arrayProveedores[$i]['PRO_NOMBRE']; ?></td>
                   <td><?php echo ucfirst($arrayProveedores[$i]['PRO_ESTADO']); ?></td>
+                  <td><a data-toggle="modal" data-target="#modalProveedorCategoris" href="">Categorias</a></td>
                   <td><a href="">Modificar</a></td>
                   <td><a href="">Eliminar</a></td>                  
                 </tr>
@@ -92,12 +97,12 @@ include('include/header.php');
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Seleccione "Logout"para cerrar sesión.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="login.html">Logout</a>

@@ -1,4 +1,5 @@
 <?php
+
 $proNombre = $_POST["proNombre"];
 $proDescripcion = $_POST["proDescripcion"];
 $proWhatsapp = $_POST["proWhatsapp"];
@@ -6,11 +7,15 @@ $proMessenger = $_POST["proMessenger"];
 $proEmail = $_POST["proEmail"];
 $proHorarios = $_POST["proHorarios"];
 $proTelefonos = $_POST["proTelefonos"];
+$proColorFondo = $_POST["proColorFondo"];
+$proColorLetras = $_POST["proColorLetras"];
+$proNombreCarpeta = $_POST["proNombreCarpeta"];
 
 $query = "   INSERT INTO proveedores
 			 (
 			     PRO_UID, 
-		         PRO_NOMBRE, 
+		         PRO_NOMBRE,
+		         PRO_NOMBRE_CARPETA,
 	             PRO_DESCRIPCION, 
 	             PRO_IMAGEN_LOGO, 
 	             PRO_IMAGEN_PORTADA, 
@@ -21,10 +26,13 @@ $query = "   INSERT INTO proveedores
 	             PRO_GEOLOCALIZACION, 
 	             PRO_RANKING, 
 	             PRO_TELEFONOS, 
+                 PRO_COLOR_FONDO,
+                 PRO_COLOR_LETRAS,
 	             PRO_ESTADO)
 			 VALUES(
 			     NULL, 
-	             '$proNombre', 
+	             '$proNombre',
+	             '$proNombreCarpeta',
 	             '$proDescripcion', 
 	             '', 
 	             '', 
@@ -34,10 +42,13 @@ $query = "   INSERT INTO proveedores
 	             '$proHorarios', 
 	             '', 
 	             0, 
-	             '$proTelefonos', 
+	             '$proTelefonos',
+	             '$proColorFondo',
+	             '$proColorLetras',
 	             'ACTIVO');
 	             ";
 include  'connection/connection.php';
+
 $result  = $con->query($query);
 $last_id = $con->insert_id;
 $target_dir = "../uploads/logos/";
@@ -62,5 +73,14 @@ $query = "UPDATE proveedores
 		      PRO_IMAGEN_PORTADA ='$target_file_portada'
 		  WHERE PRO_UID = " . $last_id;
 $result  = $con->query($query);
+if (!file_exists('../../' . $proNombreCarpeta)) {
+    mkdir('../../' . $proNombreCarpeta, 0777, true);
+}
+
+$myfile = fopen("../../" . $proNombreCarpeta . "/index.php", "w") or die("Unable to open file!");
+$txt = '<?php session_start(); $_SESSION["proUid"] = ' . $last_id . '; include("../services/empresaPerfil.php");?>';
+fwrite($myfile, $txt);
+fclose($myfile);
+
 header("Location: ../proveedores.php");
 ?>

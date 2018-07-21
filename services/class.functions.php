@@ -26,6 +26,7 @@ class proveedoresClass
         }
         $query = "SELECT PRO_UID,
                          PRO_NOMBRE,
+                         PRO_NOMBRE_CARPETA,
                          PRO_DESCRIPCION,
                          PRO_IMAGEN_LOGO,
                          PRO_IMAGEN_PORTADA,
@@ -36,6 +37,8 @@ class proveedoresClass
                          PRO_GEOLOCALIZACION,
                          PRO_RANKING,
                          PRO_TELEFONOS,
+                         PRO_COLOR_FONDO,
+                         PRO_COLOR_LETRAS
                          PRO_ESTADO
                   FROM proveedores
                   WHERE PRO_ESTADO = 'ACTIVO'" . $where;
@@ -116,73 +119,25 @@ class proveedoresClass
         return $array;
     }    
 
-    public function printItem($string)
-    {
-        return 'Foo: ' . $string . PHP_EOL;
-    }
-    
-    public function printPHP()
-    {
-        return 'PHP is great.' . PHP_EOL;
-    }
-
-    public function obtenerCombos()
-    { 	
-    	include  'conexion.php';
-    	$query = "SELECT PRO_UID,
-    	                 PRO_NOMBRE,
-    	                 PRO_DESCRIPCION,
-    	                 PRO_INGREDIENTES,
-    	                 PRO_VENTA,
-    	                 PRO_AGRANDADO
-    	          FROM productos
-    	          WHERE PRO_ESTADO = 'ACTIVO'";
-    	$result = $con->query($query);
-    	$array = array();
-    	$array = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    	mysqli_close($con);
-    	return $array;
-    }
-
-    public function obtenerBebidasCombos($categoria = '')
-    { 	
-    	include  'conexion.php';
-        if ($categoria != '') {
-            if ($categoria == 'COMBO') {
-                $where = " BSA_CATEGORIA = 'COMBO' OR BSA_CATEGORIA = 'ALCOHOL' ";
-            } else {
-                $where = " BSA_CATEGORIA = '$categoria' ";
-            }
-            
+    public function getProveedoresPorCategoria($catUid = ''){
+        include  'connection/connection.php';
+        $where = ' ';
+        if ($catUid == '') {
+            $where = " ";
         } else {
-            $where = " 1 = 1 ";
+            $where = "AND PC.CAT_UID = '$catUid' ";
         }
-    	$query = "SELECT BSA_UID, 
-    	                 BSA_NOMBRE, 
-    	                 BSA_VENTA, 
-    	                 BSA_AGRANDADO, 
-    	                 BSA_AGRANDADO_VENTA, 
-                         BSA_CATEGORIA,
-    	                 BSA_ESTADO
-                  FROM bebidas
-    	          WHERE BSA_ESTADO = 'ACTIVO'
-                  AND " . $where;
-    	$result = $con->query($query);
-    	$array = array();
-    	$array = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    	mysqli_close($con);
-    	return $array;
-    }
 
-    public function obtenerSueltos()
-    {   
-        include  'conexion.php';
-        $query = "SELECT SUE_UID,
-                         SUE_NOMBRE,
-                         SUE_VENTA,
-                         SUE_ESTADO
-                  FROM sueltos
-                  WHERE SUE_ESTADO = 'ACTIVO'";
+        $query = "SELECT P.PRO_UID AS PRO_UID,
+                         P.PRO_NOMBRE AS PRO_NOMBRE 
+                  FROM proveedores_categorias PC
+                  INNER JOIN categorias C
+                      ON C.CAT_UID = PC.CAT_UID
+                  INNER JOIN proveedores P
+                      ON P.PRO_UID = PC.PRO_UID
+                  WHERE PC.PC_ESTADO = 'ACTIVO'
+                  AND C.CAT_ESTADO = 'ACTIVO'
+                  AND P.PRO_ESTADO = 'ACTIVO'" . $where;        
         $result = $con->query($query);
         $array = array();
         $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -190,6 +145,25 @@ class proveedoresClass
         return $array;
     }
 
+    public function getPromociones($proUid = ''){
+        include  'connection/connection.php';
+        $where = ' ';
+        if ($proUid == '') {
+            $where = " ";
+        } else {
+            $where = "AND PRO_UID = '$proUid' ";
+        }
+        $query = "SELECT PP_IMAGEN,
+                         PP_TITULO,
+                         PP_DESCRIPCION
+                  FROM proveedores_promociones
+                  WHERE PP_ESTADO = 'ACTIVO'" . $where;
+        $result = $con->query($query);
+        $array = array();
+        $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_close($con);
+        return $array;
+    }
 }
 
 ?>
