@@ -58,4 +58,44 @@
 
       });
       */
+
+      function getCategorias(proUid){
+        //alert(proUid);
+        var tipo = 'getCategoriasPorProveedor';
+        $.ajax({
+            type: 'post',
+            url: "classes/globalFunction.php",             
+            data: 'tipo='+tipo + '&proUid=' + proUid,  
+            success: function(data) {
+              //alert(data);
+              $('#checkboxCategorias').html(data);
+            //$("#result").hide().html(output).slideDown();           
+            }
+        });
+
+      }
+
+      function categoriaProveedorAgregarEliminar(element){
+        console.log(element);
+        var pcUid = element.getAttribute("pcUid");
+        var proUid = element.getAttribute("proUid");
+        var catUid = element.getAttribute("value");
+        var tipo = '';
+        if (element.checked) {
+          tipo = 'agregarCategoriasPorProveedor';
+        } else {
+          tipo = 'eliminarCategoriasPorProveedor';
+        }
+
+        $.ajax({
+            type: 'post',
+            url: "classes/globalFunction.php",             
+            data: 'tipo=' + tipo + '&pcUid=' + pcUid + '&proUid=' + proUid + '&catUid=' + catUid,
+            async: true,
+            success: function(data) {
+              getCategorias(proUid);
+            }
+        });
+
+      }
     </script>
