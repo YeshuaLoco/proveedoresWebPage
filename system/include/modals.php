@@ -107,13 +107,10 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>        
       </div>
       <form>
-        <div class="modal-body">        
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Option 1</label>
-            </div>          
+        <div class="modal-body" id="checkboxCategorias">                             
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default">Guardar</button>
+          <!--<button type="submit" class="btn btn-default">Guardar</button>-->
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </div>
       </form>

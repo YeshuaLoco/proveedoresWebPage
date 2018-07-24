@@ -69,7 +69,7 @@ include('include/header.php');
                   <td><img width="50px" height="50px" src="<?php echo $arrayProveedores[$i]['PRO_IMAGEN_LOGO']; ?>"></td>
                   <td><?php echo $arrayProveedores[$i]['PRO_NOMBRE']; ?></td>
                   <td><?php echo ucfirst($arrayProveedores[$i]['PRO_ESTADO']); ?></td>
-                  <td><a data-toggle="modal" data-target="#modalProveedorCategoris" href="">Categorias</a></td>
+                  <td><a data-toggle="modal" data-target="#modalProveedorCategoris" onclick="getCategorias(<?php echo $arrayProveedores[$i]['PRO_UID']; ?>)" href="">Categorias</a></td>
                   <td><a href="">Modificar</a></td>
                   <td><a href="">Eliminar</a></td>                  
                 </tr>

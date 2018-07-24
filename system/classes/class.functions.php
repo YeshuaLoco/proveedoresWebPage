@@ -16,6 +16,44 @@ class proveedoresClass
         return $array;
     }
 
+    public function getCategoriasPorProveedor($proUid){
+        include  'connection/connection.php';
+        $query = "SELECT C.CAT_UID AS CAT_UID,
+                         $proUid AS PRO_UID,
+                         PC.PC_UID AS PC_UID,
+                         C.CAT_NOMBRE AS CAT_NOMBRE,
+                         PC.PC_ESTADO AS PC_ESTADO
+                  FROM categorias C
+                  LEFT JOIN proveedores_categorias PC 
+                  ON PC.CAT_UID = C.CAT_UID AND PC.PRO_UID = $proUid
+                  WHERE C.CAT_ESTADO = 'ACTIVO'                  
+                  ORDER BY C.CAT_NOMBRE";
+        $result = $con->query($query);
+        $array = array();
+        $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_close($con);
+        return $array;
+    }
+
+    public function addCategoriasPorProveedor($pcUid,$proUid,$catUid){
+        include  'connection/connection.php';
+        $query = "INSERT INTO proveedores_categorias
+                  (PC_UID, PRO_UID, CAT_UID, PC_ESTADO)
+                  VALUES(NULL, " . $proUid . ", " . $catUid . ", 'ACTIVO');";
+        $result = $con->query($query);
+        mysqli_close($con);
+        return 'OK';
+    }
+
+    public function removeCategoriasPorProveedor($pcUid,$proUid,$catUid){
+        include  'connection/connection.php';
+        $query = "DELETE FROM  proveedores_categorias
+                  WHERE PC_UID=$pcUid;";
+        $result = $con->query($query);
+        mysqli_close($con);
+        return 'OK';
+    }
+
     public function getProveedores($proUid = ''){
         include  'connection/connection.php';
         $where = ' ';
