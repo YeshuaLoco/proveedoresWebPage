@@ -6,8 +6,8 @@ require 'services/class.functions.php';
 $proveedoresClass  = new proveedoresClass();
 $arrayCategories = array();
 $arrayCategories = $proveedoresClass->getCategories();
-//echo("Categorias") . "<br>";
-//var_dump($arrayCategories);
+echo("Categorias") . "<br>";
+var_dump($arrayCategories);
 //******************************************************
 echo "<br>";
 //*****************************************************
@@ -57,8 +57,8 @@ $proveedoresClass  = new proveedoresClass();
 $uidCategoria = 6;
 $arrayProveedoresPorCategoria = array();
 $arrayProveedoresPorCategoria = $proveedoresClass->getProveedoresPorCategoria($uidCategoria);
-//echo("Proveedor Por Categoria") . "<br>";
-//var_dump($arrayProveedoresPorCategoria);
+echo("Proveedor Por Categoria") . "<br>";
+var_dump($arrayProveedoresPorCategoria);
 //*****************************************************
 // PROMOCIONES
 //*****************************************************
@@ -66,7 +66,7 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayPromociones = array();
 $arrayPromociones = $proveedoresClass->getPromociones($idProveedor);
-echo("PROMOCIONES") . "<br>";
-var_dump($arrayPromociones);
+//echo("PROMOCIONES") . "<br>";
+//var_dump($arrayPromociones);
 echo "<br>";
 ?>

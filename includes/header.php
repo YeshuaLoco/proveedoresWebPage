@@ -11,7 +11,7 @@
                     <!-- Main Menus Wrapper -->
                     <div class="nav-menus-wrapper">
                         <ul class="nav-menu align-to-right">
-                            <li><a href="index.html" target="_self">Inicio</a></li>
+                            <li><a href="index.php" target="_self">Inicio</a></li>
                             <li><a href="#">Categorias</a>
                                 <ul class="nav-dropdown">
                                 <?php
@@ -22,7 +22,13 @@
                                 ?>
                                     <li><a href="#"><?php echo utf8_encode($arrayCategories[$i]['CAT_NOMBRE']);  ?></a>
                                         <ul class="nav-dropdown">
-                                            <li><a href="index-spa.php" target="_self">Maprial</a></li>
+                                            <?php 
+                                                $catUid = $arrayCategories[$i]['CAT_UID'];
+                                                $aProveedorCat = $proveedoresClass->getProveedoresPorCategoria($catUid);
+                                                
+                                                for ($j=0;$j<count($aProveedorCat);$j++) {  ?>
+                                                    <li><a href="services/puente.php?proUid=<?php echo $aProveedorCat[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $aProveedorCat[$j]['PRO_NOMBRE']; ?>" target="_blank"><?php echo $aProveedorCat[$j]['PRO_NOMBRE']; ?></a></li>
+                                            <?php } ?>
                                         </ul>
                                     </li>
                                 <?php
