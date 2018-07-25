@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'class.functions.php';
 ?>
 <!DOCTYPE html>
@@ -42,6 +43,37 @@ require 'class.functions.php';
     <link href="../css/fonts/poppins.css" rel="stylesheet">
     <link href="../css/fonts/poiret-one.css" rel="stylesheet">
     <style>
+
+        .sticky-container{
+            padding:0px;
+            margin:0px;
+            position:fixed;
+            right:-170px;
+            top:230px;
+            width:210px;
+            z-index: 1100;
+        }
+        .sticky li{
+            list-style-type:none;
+            background-color:#fff;
+            color:#efefef;
+            height:43px;
+            padding:0px;
+            margin:0px 0px 1px 0px;
+            -webkit-transition:all 0.25s ease-in-out;
+            -moz-transition:all 0.25s ease-in-out;
+            -o-transition:all 0.25s ease-in-out;
+            transition:all 0.25s ease-in-out;
+            cursor:pointer;
+        }
+        .sticky li:hover{
+            margin-left:-15px;
+        }
+        .sticky li img{
+            float:left;
+            margin:5px 4px;
+            margin-right:5px;
+        }       
         .fitness_version .advisor_thumb:after {
             background-color: orange;
             border-bottom: 1px solid #222;
@@ -113,11 +145,6 @@ require 'class.functions.php';
                             <li><a href="#gallery">Galeria</a></li>
                             <li><a href="#package">Especialidad</a></li>                      
                             <li><a href="#contact">Contacto</a></li>
-                            <li>
-                                <a href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>"><i class="fa fa-facebook-square"></i></a>
-                                <a href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!"><i class="fa fa-whatsapp"></i></a>
-                                <a href="<?php echo $arrayProveedores[0]['PRO_TELEFONOS']; ?>"><i class="fa fa-phone"></i></a>                                
-                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -142,7 +169,7 @@ require 'class.functions.php';
                                         <h3 class="font-greatvibes text-white">Maprial</h3>
                                     </div>
                                     <div class="s-obj default-title" id="title-one">
-                                        <h2 class=" text-white">Lamejor productora</h2>
+                                        <h2 class=" text-white">La mejor productora</h2>
                                     </div>
                                     
                                     <div class="s-obj" id="btn-one">
@@ -155,12 +182,12 @@ require 'class.functions.php';
                     </div>
                 </div>
                 <!-- Background Image -->
-                <img class="slidea-background" src="system/<?php echo $arrayProveedores[0]['PRO_IMAGEN_PORTADA']; ?>" alt="">
+                <img class="slidea-background" src="../system/<?php echo $arrayProveedores[0]['PRO_IMAGEN_PORTADA']; ?>" alt="">
             </div>
         </div>
     </section>
     <!-- ***** Welcome Area End ***** -->
-
+    
     <!-- ***** About us Area Start ***** -->
     <section class="spa_about_us_area spa_version section_padding_100_0" id="about">
         <div class="container">
@@ -197,7 +224,7 @@ require 'class.functions.php';
                     <div class="fitness_class_slides">
                         <!-- Single Class Slide -->
                         <div class="single_class_slide">
-                            <img src="system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
+                            <img src="../system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
                             <div class="time">
                                 <p>2x1</p>
                             </div>
@@ -242,7 +269,7 @@ require 'class.functions.php';
                         <div class="single_advisor">
                             <!-- Single advisor profile thumb -->
                             <div class="advisor_thumb">
-                                <img src="system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
+                                <img src="../system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
                                 <div class="advisor_social_info" style="background-color: orange;">
                                     <div class="social_icon">
                                         <a><i ><b>2x1</b></i></a>
@@ -287,7 +314,7 @@ require 'class.functions.php';
                             <div class="row">
                                 <div class="col-12">
                                     <div class="team_advisor_thumb">
-                                        <img src="system/<?php echo $arrayOfertas[0]['PP_IMAGEN']; ?>" alt="">
+                                        <img src="../system/<?php echo $arrayOfertas[0]['PP_IMAGEN']; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -334,13 +361,13 @@ require 'class.functions.php';
         ?>
         <!-- Single gallery Item Start -->
         <div class="single_gallery_item app">
-            <img src="system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>" alt="">
+            <img src="../system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>" title="hola mundo" alt="">
             <!-- Single gallery Item hover caption -->
             <div class="hover_overlay">
                 <div class="classy-table">
                     <div class="classy-table-cell">
                         <div class="more_details text-center">
-                            <a class="gallery_img text-white" href="system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>"><i class="pe-7s-search"></i></a>
+                            <a class="gallery_img text-white" title="" href="../system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>"><i class="pe-7s-search"></i></a>
                         </div>
                     </div>
                 </div>
@@ -587,13 +614,42 @@ require 'class.functions.php';
     </div>
     <!-- ***** Package Area End ***** -->
    
+   <!-- Classy Rating -->
+    <div class="classy-star-three">
+        <fieldset>
+            <input type="radio" id="c-star5" name="rating" value="5"><label for="star5" title="Outstanding">5 stars</label>
+            <input type="radio" id="c-star4" name="rating" value="4"><label for="star4" title="Very Good">4 stars</label>
+            <input type="radio" id="c-star3" name="rating" valuSe="3"><label for="star3" title="Good">3 stars</label>
+            <input type="radio" id="c-star2" name="rating" value="2"><label for="star2" title="Poor">2 stars</label>
+            <input type="radio" id="c-star1" name="rating" value="1"><label for="star1" title="Very Poor">1 star</label>
+        </fieldset>
+    </div>
+
     <div class="map_contact_address_area">
         <!-- Map Area Start -->
         <div class="map_area" id="googleMap"></div>
     </div>
     <!-- ***** Message Now Area Start ***** -->   
 
-    
+    <div class="sticky-container">
+        <ul class="sticky">
+            <li style="border-radius: 50px;">
+                <a href="http://www.facebook.com/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
+                    <img src="../img/social-icons/if_facebook.png" width="32" height="32">
+                </a>
+            </li>
+            <li style="border-radius: 50px;">
+                <a href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
+                    <img src="../img/social-icons/if_messenger.png" width="32" height="32">                
+                </a>
+            </li>
+            <li style="border-radius: 50px;">
+                <a href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!" target="_blank">
+                    <img src="../img/social-icons/if_whatsapp.png" width="32" height="32">
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <!-- ***** All jQuery Plugins ***** -->
 

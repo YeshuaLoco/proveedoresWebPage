@@ -44,6 +44,10 @@ require 'services/class.functions.php';
     <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
     <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
     <style>
+        .sticky li {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
         .hosting_version.domain_search_area {
             position: relative;
             z-index: 1;
@@ -91,7 +95,26 @@ require 'services/class.functions.php';
                     <!-- Search Form Start -->
                     <form action="#" class="domain_form">
                         <div class="form-group">
-                            <input type="search" name="search" class="form-control search_box" placeholder="Encuentra lo todo lo que buscas">
+                            <input type="search" name="search" class="form-control search_box" style = "width:53%" placeholder="Encuentra lo todo lo que buscas">
+                            <datalist id="suggestions">
+                                <option value="Black">
+                                <option value="Red">
+                                <option value="Green">
+                                <option value="Blue">
+                                <option value="White">
+                            </datalist>
+                            <select class="form-control search_box" style = "width:25%" id="sel1">
+                                <option value=''>Elige Ubicación</option>
+                                <option value='LPZ'>La Paz</option>
+                                <option value='CBBA'>Cochabamba</option>
+                                <option value='SCZ'>Santa Cruz</option>
+                                <option value='BNI'>Beni</option>
+                                <option value='PND'>Pando</option>
+                                <option value='PSI'>Potosí</option>
+                                <option value='CHQ'>Chuquisaca</option>
+                                <option value='ORU'>Oruro</option>
+                                <option value='TJA'>Tarija</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-default submit_btn">Buscar</button>                       
                     </form>
@@ -101,60 +124,8 @@ require 'services/class.functions.php';
     </div>
 
 
-    <!-- ********* Special Dishes Area Start ********* -->
-    <section class="special_dishes_area restaurant_version background-overlay jarallax section_padding_100" style="background-color: black">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row justify-content-center">
-                        <div class="restaurant section_heading m-right-30">
-                            <h2>Empresas destacadas</h2>
-                            <img src="img/core-img/divider.png" alt="">
-                        </div>        
-                    </div>
-                    <div class="special_dishes_slider">
-                    <?php 
-                    $proveedoresClass  = new proveedoresClass();
-                    $arrayProveedores = array();
-                    $arrayProveedores = $proveedoresClass->getProveedores();
-                    for ($j=0; $j < count($arrayProveedores); $j++) { 
-                    ?>
-
-                        <!-- Single Item Start -->
-                        <div class="single_special_dishe_slide">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-md-6">
-                                    <div class="single_special_dishe_img">
-                                        <img src="system/<?php echo $arrayProveedores[$j]['PRO_IMAGEN_PORTADA'];?>" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="single_special_dishe_text m-xs-top-30">
-                                        <!-- Heading Start -->
-                                        <h2 class="cookie-fonts"><?php echo $arrayProveedores[$j]['PRO_NOMBRE']; ?></h2>
-                                        <!-- Single Dishes Start -->
-                                        <h3>&nbsp;</h3>
-                                        <p><?php echo utf8_encode($arrayProveedores[$j]['PRO_DESCRIPCION']); ?></p>
-                                        <!-- Book Now Btn -->
-                                        <a href="#" class="btn btn-pill btn-flat-pumpkin"><?php echo utf8_encode($arrayProveedores[$j]['PRO_TELEFONOS']); ?></a>
-                                        <a class="btn btn-pill btn-flat-pumpkin" href="http://m.me/<?php echo utf8_encode($arrayProveedores[$j]['PRO_MESSENGER']); ?>"><i class="fa fa-facebook-square"></i></a>
-                                        <a class="btn btn-pill btn-flat-pumpkin" href="https://api.whatsapp.com/send?phone=<?php echo utf8_encode($arrayProveedores[$j]['PRO_WHATSAPP']); ?>&amp;text=Hola, quiero contactarme con ustedes!"><i class="fa fa-whatsapp"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ********* Special Dishes Area End ********* -->
-
-        <!-- ***** Our Speciality Area Start ***** -->
-    <section style="background-color: #2c3e50">
+    <!-- ***** Our Speciality Area Start ***** -->
+    <section style="background-color: #000">
         <div class="classy-featured-area featured-2 section_padding_100_70 ">
             <div class="container">
             <div class="row justify-content-center">
@@ -173,16 +144,48 @@ require 'services/class.functions.php';
                     ?>
                     <!-- Single Feature Area -->
                     <div class="col-12 col-md-6 col-lg-4" >
-                        <div class="classy-single-feature m-bottom-30 p-15 bg-gray">
+                        <div class="classy-single-feature m-bottom-30 p-15 bg-gray" style="text-align: center;">
+                            <div class="featured-image">
+                                <img class="img-responsive" src="system/<?php echo $arrayProveedores[$j]['PRO_IMAGEN_LOGO']; ?>" alt="">
+                            </div>
+                            <b><h4 class="m-top-15"><?php echo utf8_encode($arrayProveedores[$j]['PRO_NOMBRE']); ?></h4></b>
+                            
+                            <ul  style = 'text-align: left; margin-left:30px' class="sticky">
+                                <li style="border-radius: 50px;">
+                                    <img src="img/social-icons/if_facebook.png" width="32" height="32">
+                                    <a href="http://www.facebook.com/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
+                                        <?php echo $arrayProveedores[0]['PRO_MESSENGER'];?>    
+                                    </a>                                    
+                                </li>
+                                <li style="border-radius: 50px;">
+                                    <img src="img/social-icons/if_messenger.png" width="32" height="32">
+                                    <a href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
+                                        <?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>                    
+                                    </a>                                    
+                                </li>
+                                <li style="border-radius: 50px;">
+                                    <img src="img/social-icons/if_whatsapp.png" width="32" height="32">
+                                    <a href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!" target="_blank">
+                                    <?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>    
+                                    </a>                                    
+                                </li>
+                            </ul>
+                            <a target="_blank" style = "text-align: center; width :80%; color:#000; font-weight:900; margin-top:10px" href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>" class="btn btn-pill btn-sm btn-warning">Visitanos</a><br>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="col-12 col-md-6 col-lg-4" >
+                        <div class="classy-single-feature m-bottom-30 p-15 bg-gray" style="text-align: center;">
                             <div class="featured-image">
                                 <img class="img-responsive" src="system/<?php echo $arrayProveedores[$j]['PRO_IMAGEN_LOGO']; ?>" alt="">
                             </div>
                             <h5 class="m-top-15"><?php echo utf8_encode($arrayProveedores[$j]['PRO_NOMBRE']); ?></h5>
-                            <!--<p><?php echo utf8_encode($arrayProveedores[$j]['PRO_DESCRIPCION']); ?></p>-->
-                            <a target="_blank" href="foro.php" class="btn btn-pill btn-sm btn-warning">Ver más ...</a>
-                            <a href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>" class="btn btn-pill btn-sm btn-warning float-right">-50%</a>
+                            
+                            <a href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>" class="btn btn-pill btn-sm btn-warning">-50%</a>
+                            <a target="_blank" style = "text-align: center; width :80%; color:#000; font-weight:900; margin-top:10px" href="foro.php" class="btn btn-pill btn-sm btn-warning">Visitanos</a><br>
                         </div>
-                    </div>
+                    </div>-->
                     <?php
                     }
                     ?>
@@ -195,12 +198,12 @@ require 'services/class.functions.php';
 
 
     <!-- ***** Our Speciality Area Start ***** -->
-    <section style="background-color: #2c3e50">
+    <section style="background-color: #e67e22">
         <div class="classy-featured-area featured-2 section_padding_100_70 ">
             <div class="container">
             <div class="row justify-content-center">
                         <div class="restaurant section_heading m-right-30">
-                            <h2>Ofertas de la semana</h2>
+                            <h2 style="color: #000"'>Ofertas de la semana</h2>
                             <img src="img/core-img/divider.png" alt="">
                         </div>        
                     </div>
