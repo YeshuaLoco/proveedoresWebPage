@@ -98,4 +98,25 @@
         });
 
       }
+
+      function openModalDelete(proUid,proNombre){
+        document.getElementById('hideUidPro').value = proUid;
+        document.getElementById('hideNombrePro').value = proNombre;        
+        $('#modalDeleteConfirmation').modal('show');
+      }
+
+      function eliminarProveedor(){
+        var proUid = document.getElementById('hideUidPro').value;
+        var proNombre = document.getElementById('hideNombrePro').value;
+        tipo = 'eliminarProveedor';        
+        $.ajax({
+            type: 'post',
+            url: "classes/globalFunction.php",             
+            data: 'tipo=' + tipo + '&proUid=' + proUid + '&proNombre=' + proNombre,
+            async: true,
+            success: function(data) {
+              location.reload();
+            }
+        });
+      }
     </script>

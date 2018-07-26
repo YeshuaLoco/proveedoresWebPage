@@ -42,6 +42,16 @@ switch ($tipo) {
 		$respuesta = $proveedoresClass->removeCategoriasPorProveedor($pcUid,$proUid,$catUid);				
 		echo $respuesta;
 		break;
+
+	case 'eliminarProveedor':
+		require 'class.functions.php';		
+		$proUid = $_POST['proUid'];
+		$proNombre = $_POST['proNombre'];
+		$proveedoresClass  = new proveedoresClass();		
+		$respuesta = '';
+		$respuesta = $proveedoresClass->removeProveedor($proUid,$proNombre);				
+		echo $respuesta;
+		break;
 	
 	default:
 		# code...
