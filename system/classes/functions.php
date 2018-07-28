@@ -10,8 +10,56 @@ $proTelefonos = $_POST["proTelefonos"];
 $proColorFondo = $_POST["proColorFondo"];
 $proColorLetras = $_POST["proColorLetras"];
 $proNombreCarpeta = $_POST["proNombreCarpeta"];
+$proTags = $_POST["proTags"];
 
-$query = "   INSERT INTO proveedores
+
+if (isset($_POST["proDeptoLpz"])) {
+    $proDeptoLpz = $_POST["proDeptoLpz"];
+} else {
+	$proDeptoLpz = '';
+}
+if (isset($_POST["proDeptoTri"])) {
+    $proDeptoTri = $_POST["proDeptoTri"];
+} else {
+	$proDeptoTri = '';
+}
+if (isset($_POST["proDeptoSuc"])) {
+    $proDeptoSuc = $_POST["proDeptoSuc"];
+} else {
+	$proDeptoSuc = '';
+}
+if (isset($_POST["proDeptoCoc"])) {
+    $proDeptoCoc = $_POST["proDeptoCoc"];
+} else {
+	$proDeptoCoc = '';
+}
+if (isset($_POST["proDeptoOru"])) {
+    $proDeptoOru = $_POST["proDeptoOru"];
+} else {
+	$proDeptoOru = '';
+}
+if (isset($_POST["proDeptoCob"])) {
+    $proDeptoCob = $_POST["proDeptoCob"];
+} else {
+	$proDeptoCob = '';
+}
+if (isset($_POST["proDeptoPot"])) {
+    $proDeptoPot = $_POST["proDeptoPot"];
+} else {
+	$proDeptoPot = '';
+}
+if (isset($_POST["proDeptoScz"])) {
+    $proDeptoScz = $_POST["proDeptoScz"];
+} else {
+	$proDeptoScz = '';
+}
+if (isset($_POST["proDeptoTar"])) {
+	$proDeptoTar = $_POST["proDeptoTar"];
+} else {
+	$proDeptoTar = '';
+}
+
+    $query = "   INSERT INTO proveedores
 			 (
 			     PRO_UID, 
 		         PRO_NOMBRE,
@@ -28,6 +76,16 @@ $query = "   INSERT INTO proveedores
 	             PRO_TELEFONOS, 
                  PRO_COLOR_FONDO,
                  PRO_COLOR_LETRAS,
+                 PRO_FILTRO,
+                 PRO_DEPTO_LPZ,
+                 PRO_DEPTO_TRI,
+                 PRO_DEPTO_SUC,
+                 PRO_DEPTO_COC,
+                 PRO_DEPTO_ORU,
+                 PRO_DEPTO_COB,
+                 PRO_DEPTO_POT,
+                 PRO_DEPTO_SCZ,
+                 PRO_DEPTO_TAR,
 	             PRO_ESTADO)
 			 VALUES(
 			     NULL, 
@@ -45,6 +103,16 @@ $query = "   INSERT INTO proveedores
 	             '$proTelefonos',
 	             '$proColorFondo',
 	             '$proColorLetras',
+	             '$proTags',
+	             '$proDeptoLpz',
+				 '$proDeptoTri',
+				 '$proDeptoSuc',
+				 '$proDeptoCoc',
+				 '$proDeptoOru',
+				 '$proDeptoCob',
+				 '$proDeptoPot',
+				 '$proDeptoScz',
+				 '$proDeptoTar',
 	             'ACTIVO');
 	             ";
 include  'connection/connection.php';

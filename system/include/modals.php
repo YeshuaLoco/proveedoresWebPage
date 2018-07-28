@@ -78,6 +78,25 @@
             <input type="file" class="form-control-file" id="proPortada" name="proPortada" aria-describedby="fileHelp">
             <!--<small id="fileHelp" class="form-text text-muted">Logo Perfil.</small>-->
           </div>
+
+          <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoLpz" name="proDeptoLpz" value="YES">La Paz</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoTri" name="proDeptoTri" value="YES">Trinidad</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoSuc" name="proDeptoSuc" value="YES">Sucre</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoCoc" name="proDeptoCoc" value="YES">Cochabamba</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoOru" name="proDeptoOru" value="YES">Oruro</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoCob" name="proDeptoCob" value="YES">Cobija</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoPot" name="proDeptoPot" value="YES">Potosi</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoScz" name="proDeptoScz" value="YES">Santa Cruz</label>
+            <label class="checkbox-inline"><input type="checkbox" id="proDeptoTar" name="proDeptoTar" value="YES">Tarija</label>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-12" for="proTags">Tags</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="proTags" name="proTags" placeholder="Ingresa Tags">
+            </div>
+          </div>
           <!--
           <div class="form-group">        
             <div class="col-sm-offset-2 col-sm-12">
@@ -116,5 +135,29 @@
       </form>
     </div>
 
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalDeleteConfirmation" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Alerta</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+      </div>
+      <div class="modal-body">
+        <input style="display: none;" type="text" id="hideUidPro" name="hideUidPro" value="">
+        <input style="display: none;" type="text" id="hideNombrePro" name="hideNombrePro" value="">        
+        <p>Eliminar empresa?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="eliminarProveedor()">Eliminar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
   </div>
 </div>

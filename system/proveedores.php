@@ -70,8 +70,8 @@ include('include/header.php');
                   <td><?php echo $arrayProveedores[$i]['PRO_NOMBRE']; ?></td>
                   <td><?php echo ucfirst($arrayProveedores[$i]['PRO_ESTADO']); ?></td>
                   <td><a data-toggle="modal" data-target="#modalProveedorCategoris" onclick="getCategorias(<?php echo $arrayProveedores[$i]['PRO_UID']; ?>)" href="">Categorias</a></td>
-                  <td><a href="">Modificar</a></td>
-                  <td><a href="">Eliminar</a></td>                  
+                  <td><a href="#">Modificar</a></td>
+                  <td><a href="#" onclick="openModalDelete(<?php echo $arrayProveedores[$i]['PRO_UID']; ?>,'<?php echo $arrayProveedores[$i]['PRO_NOMBRE_CARPETA']; ?>')">Eliminar</a></td>                  
                 </tr>
                 <?php
                 }
