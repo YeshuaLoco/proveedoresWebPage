@@ -66,8 +66,8 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayPromociones = array();
 $arrayPromociones = $proveedoresClass->getPromociones($idProveedor);
-//echo("PROMOCIONES") . "<br>";
-//var_dump($arrayPromociones);
+echo("PROMOCIONES") . "<br>";
+var_dump($arrayPromociones);
 echo "<br>";
 //*****************************************************
 // ICONOS
@@ -76,7 +76,7 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayIconos = array();
 $arrayIconos = $proveedoresClass->getIconosPorProveedor($idProveedor);
-//echo("ICONOS") . "<br>";
+echo("ICONOS") . "<br>";
 var_dump($arrayIconos);
 echo "<br>";
 //*****************************************************
