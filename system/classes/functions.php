@@ -1,11 +1,11 @@
 <?php
 
 $proNombre = $_POST["proNombre"];
-$proDescripcion = $_POST["proDescripcion"];
+$proDescripcion = mysql_real_escape_string($_POST["proDescripcion"]);
 $proWhatsapp = $_POST["proWhatsapp"];
 $proMessenger = $_POST["proMessenger"];
 $proEmail = $_POST["proEmail"];
-$proHorarios = $_POST["proHorarios"];
+$proHorarios = mysql_real_escape_string($_POST["proHorarios"]);
 $proTelefonos = $_POST["proTelefonos"];
 $proColorFondo = $_POST["proColorFondo"];
 $proColorLetras = $_POST["proColorLetras"];

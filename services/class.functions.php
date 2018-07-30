@@ -164,6 +164,103 @@ class proveedoresClass
         mysqli_close($con);
         return $array;
     }
+
+    public function getIconosPorProveedor($proUid){
+        include  'connection/connection.php';
+        $query = "SELECT I.ICO_CLASS
+                  FROM proveedores_iconos PI
+                  INNER JOIN iconos I ON I.ICO_UID = PI.ICO_UID 
+                  WHERE PRO_UID = $proUid
+                  AND PI.ICO_ESTADO = 'ACTIVO'";
+        $result = $con->query($query);
+        $array = array();
+        $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_close($con);
+        return $array;
+    }
+
+    public function getBusqueda($palabraClave = '', $ciudad = ''){
+        include  'connection/connection.php';
+        if ($ciudad == '') {
+            $whereCiudadProveedor = " ";
+            $whereCiudadPromocion = " ";
+        } else {
+            $whereCiudadProveedor = " AND PRO_DEPTO_" . $ciudad . " = 'YES' ";
+            $whereCiudadPromocion = " AND P.PRO_DEPTO_" . $ciudad . " = 'YES' ";
+        }
+        $query = "SELECT PRO_UID,
+                         PRO_NOMBRE,
+                         PRO_DESCRIPCION AS DESCRIPCION,
+                         '' AS ID_PROMOCION,       
+                         PRO_NOMBRE_CARPETA,
+                         PRO_IMAGEN_LOGO AS IMAGEN_URL,
+                         '' AS PRECIO_ANTIGUO,
+                         '' AS PRECIO_NUEVO,
+                         '' AS VALOR_DESCUENTO,
+                         PRO_WHATSAPP,
+                         PRO_MESSENGER,
+                         PRO_RANKING
+                  FROM proveedores
+                  WHERE (PRO_NOMBRE LIKE '%$palabraClave%'
+                  OR PRO_DESCRIPCION LIKE '%$palabraClave%'
+                  OR PRO_FILTRO LIKE '%$palabraClave%'                  
+                  )
+                  " . $whereCiudadProveedor . "                  
+                  AND PRO_ESTADO = 'ACTIVO'
+                  UNION 
+                  SELECT P.PRO_UID AS PRO_UID,
+                         P.PRO_NOMBRE AS PRO_NOMBRE,
+                         P.PRO_DESCRIPCION AS DESCRIPCION,
+                         PP.PP_UID AS ID_PROMOCION,
+                         '' AS PRO_NOMBRE_CARPETA,
+                         PP.PP_IMAGEN AS IMAGEN_URL,
+                         PP.PP_PRECIO_ANTIGUO AS PRECIO_ANTIGUO,
+                         PP.PP_PRECIO_NUEVO AS PRECIO_NUEVO,
+                         PP.PP_VALOR_DESCUENTO AS VALOR_DESCUENTO,
+                         '' AS PRO_WHATSAPP,
+                         '' AS PRO_MESSENGER,
+                         '' AS PRO_RANKING       
+                  FROM proveedores_promociones PP
+                  inner join proveedores P ON P.PRO_UID = PP.PRO_UID
+                  WHERE (PP.PP_TITULO LIKE '%$palabraClave%'
+                  OR PP.PP_DESCRIPCION LIKE '%$palabraClave%')
+                  AND PP.PP_ESTADO = 'ACTIVO'"
+                  . $whereCiudadPromocion;       
+        $result = $con->query($query);
+        $array = array();
+        $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_close($con);
+        return $array;
+    }    
+
+    public function getPromocionPorID($promoUid){
+        include  'connection/connection.php';
+        $query = "SELECT PP.PP_UID AS PROMOCION_UID,
+                         P.PRO_UID AS PRO_UID,
+                         P.PRO_NOMBRE AS PRO_NOMBRE, 
+                         P.PRO_NOMBRE_CARPETA AS PRO_NOMBRE_CARPETA,
+                         P.PRO_IMAGEN_LOGO AS PRO_IMAGEN_LOGO, 
+                         PP.PP_IMAGEN AS PROMOCION_IMAGEN,
+                         PP.PP_TITULO AS PROMOCION_TITULO,
+                         PP.PP_DESCRIPCION AS PROMOCION_DESCRIPCION,
+                         PP.PP_PRECIO_ANTIGUO AS PROMOCION_PRECIO_ANTIGUO,
+                         PP.PP_PRECIO_NUEVO AS PROMOCION_PRECIO_NUEVO,
+                         PP.PP_VALOR_DESCUENTO AS PROMOCION_VALOR_DESCUENTO,
+                         PP.PP_FECHA_VENCIMIENTO AS PROMOCION_FECHA_VENCIMIENTO,
+                         DATE_FORMAT(PP.PP_FECHA_VENCIMIENTO, '%d-%m-%Y') AS PROMOCION_FECHA_VENCIMIENTO_FORMATO
+                  FROM proveedores_promociones PP
+                  INNER JOIN proveedores P
+                  ON P.PRO_UID = PP.PRO_UID
+                  WHERE PP.PP_UID = $promoUid";
+        $result = $con->query($query);
+        $array = array();
+        $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_close($con);
+        return $array;
+    }
+
+
+
 }
 
 ?>

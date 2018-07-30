@@ -75,8 +75,23 @@
 
       }
 
-      function categoriaProveedorAgregarEliminar(element){
-        console.log(element);
+      function getIconos(proUid){
+        //alert(proUid);
+        var tipo = 'getIconosPorProveedor';
+        $.ajax({
+            type: 'post',
+            url: "classes/globalFunction.php",             
+            data: 'tipo='+tipo + '&proUid=' + proUid,  
+            success: function(data) {
+              //alert(data);
+              $('#checkboxIconos').html(data);
+            //$("#result").hide().html(output).slideDown();           
+            }
+        });
+
+      }
+
+      function categoriaProveedorAgregarEliminar(element){        
         var pcUid = element.getAttribute("pcUid");
         var proUid = element.getAttribute("proUid");
         var catUid = element.getAttribute("value");
@@ -98,6 +113,29 @@
         });
 
       }
+
+      function iconoProveedorAgregarEliminar(element){        
+        var picUid = element.getAttribute("picUid");
+        var proUid = element.getAttribute("proUid");
+        var icoUid = element.getAttribute("value");
+        var tipo = '';
+        if (element.checked) {
+          tipo = 'agregarIconosPorProveedor';
+        } else {
+          tipo = 'eliminarIconosPorProveedor';
+        }
+
+        $.ajax({
+            type: 'post',
+            url: "classes/globalFunction.php",             
+            data: 'tipo=' + tipo + '&picUid=' + picUid + '&proUid=' + proUid + '&icoUid=' + icoUid,
+            async: true,
+            success: function(data) {
+              getIconos(proUid);
+            }
+        });
+
+      }      
 
       function openModalDelete(proUid,proNombre){
         document.getElementById('hideUidPro').value = proUid;
