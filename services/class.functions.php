@@ -151,13 +151,16 @@ class proveedoresClass
         if ($proUid == '') {
             $where = " ";
         } else {
-            $where = "AND PRO_UID = '$proUid' ";
+            $where = "AND PP.PRO_UID = '$proUid' ";
         }
-        $query = "SELECT PP_IMAGEN,
-                         PP_TITULO,
-                         PP_DESCRIPCION
-                  FROM proveedores_promociones
-                  WHERE PP_ESTADO = 'ACTIVO'" . $where;
+        $query = "SELECT PP.PP_IMAGEN AS PP_IMAGEN,
+                         PP.PP_TITULO AS PP_TITULO,
+                         PP.PP_DESCRIPCION AS PP_DESCRIPCION,
+                         P.PRO_WHATSAPP AS PRO_WHATSAPP,
+                         P.PRO_MESSENGER AS PRO_MESSENGER
+                  FROM proveedores_promociones PP
+                  INNER JOIN proveedores P ON P.PRO_UID = PP.PRO_UID
+                  WHERE PP.PP_ESTADO = 'ACTIVO'" . $where;
         $result = $con->query($query);
         $array = array();
         $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -249,7 +252,9 @@ class proveedoresClass
                          PP.PP_PRECIO_NUEVO AS PROMOCION_PRECIO_NUEVO,
                          PP.PP_VALOR_DESCUENTO AS PROMOCION_VALOR_DESCUENTO,
                          PP.PP_FECHA_VENCIMIENTO AS PROMOCION_FECHA_VENCIMIENTO,
-                         DATE_FORMAT(PP.PP_FECHA_VENCIMIENTO, '%d-%m-%Y') AS PROMOCION_FECHA_VENCIMIENTO_FORMATO
+                         DATE_FORMAT(PP.PP_FECHA_VENCIMIENTO, '%d-%m-%Y') AS PROMOCION_FECHA_VENCIMIENTO_FORMATO,
+                         P.PRO_WHATSAPP as PRO_WHATSAPP,
+                         P.PRO_MESSENGER as PRO_MESSENGER
                   FROM proveedores_promociones PP
                   INNER JOIN proveedores P
                   ON P.PRO_UID = PP.PRO_UID
