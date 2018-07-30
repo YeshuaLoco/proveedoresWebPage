@@ -139,6 +139,29 @@
 </div>
 
 <!-- Modal -->
+<div id="modalIcons" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Iconos</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+      </div>
+      <form>
+        <div class="modal-body" id="checkboxIconos">                             
+        </div>
+        <div class="modal-footer">
+          <!--<button type="submit" class="btn btn-default">Guardar</button>-->
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
 <div class="modal fade" id="modalDeleteConfirmation" role="dialog">
   <div class="modal-dialog">
   

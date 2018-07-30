@@ -21,6 +21,24 @@ switch ($tipo) {
 		echo $respuesta;
 		break;
 
+	case 'getIconosPorProveedor':
+		require 'class.functions.php';
+		$proUid = $_POST['proUid'];
+		$proveedoresClass  = new proveedoresClass();
+		$arrayIconos = array();
+		$arrayIconos = $proveedoresClass->getIconosPorProveedor($proUid);
+		$respuesta = '';
+		for ($i=0; $i < count($arrayIconos); $i++) { 
+			$checked = '';
+			if ($arrayIconos[$i]['ICO_ESTADO'] == 'ACTIVO') {
+				$checked = 'checked';
+			}
+			$respuesta .= '<div class="checkbox"><label><input type="checkbox" picUid="' . $arrayIconos[$i]['PIC_UID'] . '" proUid="' . $arrayIconos[$i]['PRO_UID'] . '"  value="' . $arrayIconos[$i]['ICO_UID'] . '" ' . $checked . ' onclick="iconoProveedorAgregarEliminar(this)">&nbsp<i class="' . utf8_encode($arrayIconos[$i]['ICO_CLASS']) . '">&nbsp' . str_replace('fa fa-', '', utf8_encode($arrayIconos[$i]['ICO_CLASS'])) . '</i></label></div> ';
+		}
+		
+		echo $respuesta;
+		break;		
+
     case 'agregarCategoriasPorProveedor':
 		require 'class.functions.php';
 		$pcUid = $_POST['pcUid'];
@@ -42,6 +60,28 @@ switch ($tipo) {
 		$respuesta = $proveedoresClass->removeCategoriasPorProveedor($pcUid,$proUid,$catUid);				
 		echo $respuesta;
 		break;
+
+    case 'agregarIconosPorProveedor':
+		require 'class.functions.php';
+		$picUid = $_POST['picUid'];
+		$proUid = $_POST['proUid'];
+		$icoUid = $_POST['icoUid'];
+		$proveedoresClass  = new proveedoresClass();		
+		$respuesta = '';
+		$respuesta = $proveedoresClass->addIconosPorProveedor($picUid,$proUid,$icoUid);				
+		echo $respuesta;
+		break;
+
+	case 'eliminarIconosPorProveedor':
+		require 'class.functions.php';
+		$picUid = $_POST['picUid'];
+		$proUid = $_POST['proUid'];
+		$icoUid = $_POST['icoUid'];
+		$proveedoresClass  = new proveedoresClass();		
+		$respuesta = '';
+		$respuesta = $proveedoresClass->removeIconosPorProveedor($picUid,$proUid,$icoUid);				
+		echo $respuesta;
+		break;		
 
 	case 'eliminarProveedor':
 		require 'class.functions.php';		

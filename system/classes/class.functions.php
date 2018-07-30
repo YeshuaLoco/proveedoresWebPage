@@ -35,6 +35,24 @@ class proveedoresClass
         return $array;
     }
 
+    public function getIconosPorProveedor($proUid){
+        include  'connection/connection.php';
+        $query = "SELECT I.ICO_UID AS ICO_UID,
+                         $proUid AS PRO_UID,
+                         PI.PIC_UID AS PIC_UID,
+                         I.ICO_CLASS AS ICO_CLASS,
+                         PI.ICO_ESTADO AS ICO_ESTADO
+                  FROM iconos I
+                  LEFT JOIN proveedores_iconos PI 
+                  ON PI.ICO_UID = I.ICO_UID AND PI.PRO_UID = $proUid and PI.ICO_ESTADO = 'ACTIVO'                    
+                  ORDER BY I.ICO_UID";
+        $result = $con->query($query);
+        $array = array();
+        $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        mysqli_close($con);
+        return $array;
+    }    
+
     public function addCategoriasPorProveedor($pcUid,$proUid,$catUid){
         include  'connection/connection.php';
         $query = "INSERT INTO proveedores_categorias
@@ -53,6 +71,25 @@ class proveedoresClass
         mysqli_close($con);
         return 'OK';
     }
+
+    public function addIconosPorProveedor($picUid,$proUid,$icoUid){
+        include  'connection/connection.php';
+        $query = "INSERT INTO proveedores_iconos
+                  (PIC_UID, PRO_UID, ICO_UID, ICO_ESTADO)
+                  VALUES(NULL, " . $proUid . ", " . $icoUid . ", 'ACTIVO');";
+        $result = $con->query($query);
+        mysqli_close($con);
+        return 'OK';
+    }
+
+    public function removeIconosPorProveedor($picUid,$proUid,$icoUid){
+        include  'connection/connection.php';
+        $query = "DELETE FROM  proveedores_iconos
+                  WHERE PIC_UID=$picUid;";
+        $result = $con->query($query);
+        mysqli_close($con);
+        return 'OK';
+    }    
 
     public function getProveedores($proUid = ''){
         include  'connection/connection.php';
@@ -100,9 +137,16 @@ class proveedoresClass
                   WHERE PRO_UID=$proUid;";                          
         $result = $con->query($query);
 
+        $query = "DELETE FROM proveedores_iconos
+                  WHERE PRO_UID=$proUid;";                          
+        $result = $con->query($query);
+
         $query = "DELETE FROM  proveedores
                   WHERE PRO_UID=$proUid;";                          
         $result = $con->query($query);
+
+        
+        
 
         //error_log(getcwd());
 
