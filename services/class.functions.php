@@ -199,7 +199,8 @@ class proveedoresClass
                          '' AS VALOR_DESCUENTO,
                          PRO_WHATSAPP,
                          PRO_MESSENGER,
-                         PRO_RANKING
+                         PRO_RANKING,
+                         'PROVEEDOR' AS TIPO
                   FROM proveedores
                   WHERE (PRO_NOMBRE LIKE '%$palabraClave%'
                   OR PRO_DESCRIPCION LIKE '%$palabraClave%'
@@ -219,7 +220,8 @@ class proveedoresClass
                          PP.PP_VALOR_DESCUENTO AS VALOR_DESCUENTO,
                          '' AS PRO_WHATSAPP,
                          '' AS PRO_MESSENGER,
-                         '' AS PRO_RANKING       
+                         '' AS PRO_RANKING,
+                         'PROMOCION' AS TIPO       
                   FROM proveedores_promociones PP
                   inner join proveedores P ON P.PRO_UID = PP.PRO_UID
                   WHERE (PP.PP_TITULO LIKE '%$palabraClave%'

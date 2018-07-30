@@ -77,7 +77,7 @@ $idProveedor = 2;
 $arrayIconos = array();
 $arrayIconos = $proveedoresClass->getIconosPorProveedor($idProveedor);
 //echo("ICONOS") . "<br>";
-//var_dump($arrayIconos);
+var_dump($arrayIconos);
 echo "<br>";
 //*****************************************************
 // BUSQUEDA
@@ -87,8 +87,8 @@ $palabraClave = '';
 $ciudad = 'SCZ';
 $arrayBusqueda = array();
 $arrayBusqueda = $proveedoresClass->getBusqueda($palabraClave,$ciudad);
-//echo("BUSQUEDA") . "<br>";
-//var_dump($arrayBusqueda);
+echo("BUSQUEDA") . "<br>";
+var_dump($arrayBusqueda);
 echo "<br>";
 //*****************************************************
 // PROMOCION POR ID
@@ -97,7 +97,7 @@ $proveedoresClass  = new proveedoresClass();
 $promoUid = 1;
 $arrayPromocionPorId = array();
 $arrayPromocionPorId = $proveedoresClass->getPromocionPorID($promoUid);
-echo("BUSQUEDA") . "<br>";
+echo("PROMOCION POR ID") . "<br>";
 var_dump($arrayPromocionPorId);
 echo "<br>";
 
