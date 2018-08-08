@@ -3,7 +3,6 @@ require 'services/class.functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -28,6 +27,7 @@ require 'services/class.functions.php';
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/awesomplete-gh-pages/awesomplete.css" />
 
     <!-- Slidea Slider CSS -->
     <link href="slidea-assets/css/slidea/slidea.css" rel="stylesheet">
@@ -40,43 +40,102 @@ require 'services/class.functions.php';
     <!-- Switch Fonts -->
     <link href="css/fonts/opensans.css" rel="stylesheet">
 
+    <link href="css/ofertas.css" rel="stylesheet">
+
     <!-- REVOLUTION JS FILES -->
     <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
     <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="css/awesomplete-gh-pages/awesomplete.js" async></script>
     <style>
-        .sticky li {
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        .hosting_version.domain_search_area {
-            position: relative;
-            z-index: 1;
-            background-color: #000;
-        }
-        .hosting_version.domain_search_area .btn.btn-default.submit_btn {
-            background-color: #FFBB00;
-            border: medium none;
-            color: #000;
-            display: inline-block;
-            height: 50px;
-            -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
-            width: 20%;
-        }
-        .hosting_version.domain_search_area .btn.btn-default.submit_btn:hover, .hosting_version.domain_search_area .btn.btn-default.submit_btn:focus {
-            background-color: #FFBB00;
-            color: #fff;
-            box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.2);
-        }
 
-        .img-responsive{
-            max-width: 100%;
-            height: auto;
-            display:block;
-        }
-        
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: .5rem .75rem;
+        font-size: 1rem;
+        line-height: 1.25;
+        color: #495057;
+        background-color: #fff;
+        background-image: none;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 0px;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    .hosting_version.domain_search_area .btn.btn-default.submit_btn {
+        background-color: black;
+        border: medium none;
+        color: #fff;
+        display: inline-block;
+        height: 50px;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        width: 20%;
+        border-radius: 0px;
+    }
+    .fitness_version .advisor_social_info .social_icon > a:hover {
+        color: #fff;
+        background-color: #27ae60;
+    }
+    
+    .fitness_version .view_more > a {
+        background-color: #ff5722;
+        border-radius: 50%;
+        color: #fff;
+        height: 50px;
+        left: 50%;
+        /* margin-left: 10px; */
+        position: absolute;
+        text-align: center;
+        top: 40%;
+        width: 50px;
+        z-index: 999;
+    }
 
-    </style>
+    body {
+        font-family: "Open Sans",sans-serif;
+        font-size: 14px;
+        line-height: 1em;
+        background: #fff; 
+    }
+    
+    .hosting_version.domain_search_area {
+        position: relative;
+        z-index: 1;
+        background-color: #000;
+    }                
+
+    .img-responsive{
+        max-width: 100%;
+        height: auto;
+        display:block;
+    }
+    .advisor_social_info .social_icon > a {
+        background-color: #fff;
+        border-radius: 50%;
+        color: #2c3e50;
+        display: inline-block;
+        height: 38px;
+        line-height: 36px;
+        font-size: 27px;
+        margin: 0;
+        text-align: center;
+        width: 38px;
+    }
+    .awesomplete {
+        display: block;
+        /*position: relative; */
+    }
+    .awesomplete > ul {
+        border-radius: .3em;
+        margin: 3.5em 0 0;
+        background: hsla(0,0%,100%,.9);
+        background: linear-gradient(to bottom right, white, hsla(0,0%,100%,.8));
+        border: 1px solid rgba(0,0,0,.3);
+        box-shadow: 0.05em 0.2em 0.6em rgba(0,0,0,.2);
+        text-shadow: none;
+    }
+</style>
 </head>
 
 <body>
@@ -85,23 +144,25 @@ require 'services/class.functions.php';
         <div class="classy-load"></div>
     </div>
     <?php
-        include('includes/header.php');
+    include('includes/header.php');
     ?>
-     <!-- Hero Block Area Start -->
+    <!-- Hero Block Area Start -->
     <div class="domain_search_area hosting_version section_padding_100 classy-hero-blocks hero-blocks-2 height-700 background-overlay" style="background-image: url(img/business2.jpg);">
-    <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <!-- Search Form Start -->
-                    <form action="#" class="domain_form">
+                    <form action="#" class="domain_form" style = 'margin-top:180px;'>                        
                         <div class="form-group">
-                            <input type="search" name="search" class="form-control search_box" style = "width:53%" placeholder="Encuentra lo todo lo que buscas">
-                            <datalist id="suggestions">
-                                <option value="Black">
-                                <option value="Red">
-                                <option value="Green">
-                                <option value="Blue">
-                                <option value="White">
+                            <input type="text" list="mylist" name="search" class="form-control search_box awesomplete" style = "width:53%" placeholder="Encuentra lo todo lo que buscas" />
+                            <datalist id="mylist">
+                                <option>Ada</option>
+                                <option>Java</option>
+                                <option>JavaScript</option>
+                                <option>Brainfuck</option>
+                                <option>LOLCODE</option>
+                                <option>Node.js</option>
+                                <option>Ruby on Rails</option>
                             </datalist>
                             <select class="form-control search_box" style = "width:25%" id="sel1">
                                 <option value=''>Elige Ubicación</option>
@@ -123,239 +184,215 @@ require 'services/class.functions.php';
         </div>
     </div>
 
-
-    <!-- ***** Our Speciality Area Start ***** -->
-    <section style="background-color: #000">
-        <div class="classy-featured-area featured-2 section_padding_100_70 ">
-            <div class="container">
-            <div class="row justify-content-center">
-                        <div class="restaurant section_heading m-right-30">
-                            <h2>Empresas</h2>
-                            <img src="img/core-img/divider.png" alt="">
-                        </div>        
-                    </div>
-                <div class="row">
-                    
-                    <?php 
-                    $proveedoresClass  = new proveedoresClass();
-                    $arrayProveedores = array();
-                    $arrayProveedores = $proveedoresClass->getProveedores();
-                    for ($j=0; $j < count($arrayProveedores); $j++) { 
-                    ?>
-                    <!-- Single Feature Area -->
-                    <div class="col-12 col-md-6 col-lg-4" >
-                        <div class="classy-single-feature m-bottom-30 p-15 bg-gray" style="text-align: center;">
-                            <div class="featured-image">
-                                <img class="img-responsive" src="system/<?php echo $arrayProveedores[$j]['PRO_IMAGEN_LOGO']; ?>" alt="">
-                            </div>
-                            <b><h4 class="m-top-15"><?php echo utf8_encode($arrayProveedores[$j]['PRO_NOMBRE']); ?></h4></b>
-                            
-                            <ul  style = 'text-align: left; margin-left:30px' class="sticky">
-                                <li style="border-radius: 50px;">
-                                    <img src="img/social-icons/if_facebook.png" width="32" height="32">
-                                    <a href="http://www.facebook.com/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
-                                        <?php echo $arrayProveedores[0]['PRO_MESSENGER'];?>    
-                                    </a>                                    
-                                </li>
-                                <li style="border-radius: 50px;">
-                                    <img src="img/social-icons/if_messenger.png" width="32" height="32">
-                                    <a href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
-                                        <?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>                    
-                                    </a>                                    
-                                </li>
-                                <li style="border-radius: 50px;">
-                                    <img src="img/social-icons/if_whatsapp.png" width="32" height="32">
-                                    <a href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!" target="_blank">
-                                    <?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>    
-                                    </a>                                    
-                                </li>
-                            </ul>
-                            <a target="_blank" style = "text-align: center; width :80%; color:#000; font-weight:900; margin-top:10px" href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>" class="btn btn-pill btn-sm btn-warning">Visitanos</a><br>
-                        </div>
-                    </div>
-
-
-                    <!--<div class="col-12 col-md-6 col-lg-4" >
-                        <div class="classy-single-feature m-bottom-30 p-15 bg-gray" style="text-align: center;">
-                            <div class="featured-image">
-                                <img class="img-responsive" src="system/<?php echo $arrayProveedores[$j]['PRO_IMAGEN_LOGO']; ?>" alt="">
-                            </div>
-                            <h5 class="m-top-15"><?php echo utf8_encode($arrayProveedores[$j]['PRO_NOMBRE']); ?></h5>
-                            
-                            <a href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>" class="btn btn-pill btn-sm btn-warning">-50%</a>
-                            <a target="_blank" style = "text-align: center; width :80%; color:#000; font-weight:900; margin-top:10px" href="foro.php" class="btn btn-pill btn-sm btn-warning">Visitanos</a><br>
-                        </div>
-                    </div>-->
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Our Speciality Area End ***** -->
-
-
-
-    <!-- ***** Our Speciality Area Start ***** -->
-    <section style="background-color: #e67e22">
-        <div class="classy-featured-area featured-2 section_padding_100_70 ">
-            <div class="container">
-            <div class="row justify-content-center">
-                        <div class="restaurant section_heading m-right-30">
-                            <h2 style="color: #000"'>Ofertas de la semana</h2>
-                            <img src="img/core-img/divider.png" alt="">
-                        </div>        
-                    </div>
-                <div class="row">
-                    
-                    <?php $arrayOfertas = array();
-                    $arrayOfertas = $proveedoresClass->getPromociones(2);
-                    for ($j=0; $j < count($arrayOfertas); $j++) { 
-                    ?>
-                    <!-- Single Feature Area -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="classy-single-feature m-bottom-30 p-15 bg-gray">
-                            <div class="featured-image">
-                                <img src="system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
-                            </div>
-                            <h5 class="m-top-15"><?php echo utf8_encode($arrayOfertas[$j]['PP_TITULO']); ?></h5>
-                            <p><?php echo utf8_encode($arrayOfertas[$j]['PP_DESCRIPCION']); ?></p>
-                            <a target="_blank" href="foro.php" class="btn btn-pill btn-sm btn-warning">Ver más ...</a>
-                            <a href="#" class="btn btn-pill btn-sm btn-warning float-right">-50%</a>
-                        </div>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Our Speciality Area End ***** -->
-   
-    <!-- Footer Area Start -->
-    <footer class="footer_area" id="contact">
-        <!-- Top Footer Area Start -->
-        <div class="foo_top_header_two section_padding_100_70">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="single_foo_part">
-                            <h5>About Classy.</h5>
-                            <p>It includes rich features &amp; contents. It's designed &amp; developed based on One Page/ Multi-page Layout. You can use any layout from any demo anywhere.</p>
-                            <p>Classy is completely creative, clean &amp; 100% responsive website.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="single_foo_part">
-                            <h5>Important Links</h5>
-                            <ul class="imp_links">
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Terms &amp; Conditions</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>About Licences</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Help &amp; Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Careers</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Community &amp; Forum</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="single_foo_part">
-                            <h5>Latest News</h5>
-                            <div class="foo_single_blog_area">
-                                <div class="foo_blog_thumb">
-                                    <img src="img/news-img/blog-2.jpg" alt="">
-                                </div>
-                                <a href="#">
-                                    <h5>Your Blog Title Goes Here</h5>
-                                </a>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                            <div class="foo_single_blog_area">
-                                <div class="foo_blog_thumb">
-                                    <img src="img/news-img/blog-8.jpg" alt="">
-                                </div>
-                                <a href="#">
-                                    <h5>Your Blog Title Goes Here</h5>
-                                </a>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="single_foo_part">
-                            <h5>Latest Works</h5>
-                            <div class="latest_works">
-                                <a class="foo_latest_works_img" href="img/gallery/1.jpg"><img src="img/gallery/1.jpg" alt=""></a>
-                                <a class="foo_latest_works_img" href="img/gallery/4.jpg"><img src="img/gallery/4.jpg" alt=""></a>
-                                <a class="foo_latest_works_img" href="img/gallery/5.jpg"><img src="img/gallery/5.jpg" alt=""></a>
-                                <a class="foo_latest_works_img" href="img/gallery/7.jpg"><img src="img/gallery/7.jpg" alt=""></a>
-                                <a class="foo_latest_works_img" href="img/gallery/10.jpg"><img src="img/gallery/10.jpg" alt=""></a>
-                                <a class="foo_latest_works_img" href="img/gallery/11.jpg"><img src="img/gallery/11.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer Bottom Area Start -->
-        <div class="foo_bottom_header_two section_padding_50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="foo_btm_social_area_two text-right">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ***** All jQuery Plugins ***** -->
-
-    <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/include-all-plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-    <!-- Active js -->
-    <script src="js/revolution-slider-active/creative-slider-active.js"></script>
-    <!-- Slidea Slider JS -->
-    <script src="slidea-assets/js/gsap/tweenlite.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/gsap/plugins/css.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/gsap/easing/easepack.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/animus/animus.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/animus/presets/default.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/hammer/hammer.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/mousewheel/mousewheel.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
-    <script src="slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
-    <!-- Slider Active JS  -->
-    <script src="slidea-assets/js/templates/default-slider-active.js" type="text/javascript"></script>
-    <!-- Plugins js -->
-    <script src="js/include-all-plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-    <!-- Slider Active JS  -->
-    <script src="slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
     
-</body>
+    <!-- ***** Blog Area Start ***** -->
+    <div class="blog_area section_padding_100_70">
+        <div class="container">
+            <h3 style="border-left-color: #9eb0ca ; border-left-style: solid;">&nbsp; Ofertas</h3>
+            <hr>
+            <div class="row">
+                <!-- Single News Area Start -->
+                <?php $arrayOfertas = array();
+                $arrayOfertas = $proveedoresClass->getPromocionPorID(1);
+                for ($j=0; $j < count($arrayOfertas); $j++) {   
+                    ?>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single_latest_news_area m-bottom-15">
+                            <div class="single_latest_news_img_area">
+                                <img style ="width:100%;" src="system/<?php echo $arrayOfertas[$j]['PROMOCION_IMAGEN']; ?>" alt="">
+                                <!-- Catagory -->
+                                <a href="#" class="news-catagory bg-primary" style="font-size:20px"><?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_VALOR_DESCUENTO']); ?></a>
+                            </div>
+                            <div class="single_latest_news_text_area p-15" style ="font-size:18px">
+                                <a class="news-headline" href="services/puente.php?proUid=<?php echo $aProveedorCat[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $aProveedorCat[$j]['PRO_NOMBRE']; ?>"><?php echo utf8_encode($arrayOfertas[$j]['PRO_NOMBRE']); ?></a>
+                                <div class="post-meta">
+                                    <a style="text-decoration: line-through;" href="#"><i class="fa fa-times" aria-hidden="true"></i> <?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_PRECIO_ANTIGUO']); ?> Bs</a>
+                                    <a href="#"><i class="fa fa-check" aria-hidden="true"></i> <?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_PRECIO_NUEVO']); ?> Bs</a>
+                                    <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> Valido hasta el <?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_FECHA_VENCIMIENTO_FORMATO']); ?></a>
+                                </div>
+                                <p><?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_DESCRIPCION']); ?></p>
+                                <p>Dejanos un mensaje con tus dudas: 
+                                    <a href='https://api.whatsapp.com/send?phone=<?php echo $arrayOfertas[0]['PRO_WHATSAPP']; ?>&text=Hola, deseo saber más sobre la promoción "<?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_DESCRIPCION']); ?>"'><i style = "font-size: 31px;" class="fa fa-whatsapp" aria-hidden="true"></i></a></p>
+                                    <a style= "color: #fff; background-color: #000; border-color: #000; font-size:20px; width: 100%;border-radius: 0px;" class="btn btn-pill btn-sm m-top-15" href="services/puente.php?proUid=<?php echo $arrayOfertas[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayOfertas[$j]['PRO_NOMBRE']; ?>">Visitanos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>                
+                </div>
+            </div>
+        </div>
+        <!-- ***** Blog Area End ***** -->
+        
 
-</html>
+        <div role="dialog" tabindex="-1" id="advisor_details1" class="modal fade in animated slideInDown">
+            <div role="document" class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Head Start -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="teammodelhead">Riya Islam</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <!-- Modal Body Start -->
+                    <div class="modal_body">
+                        <!-- single gallery description start -->
+                        <div class="single_gallery_area text-center p-30">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="team_advisor_thumb">
+                                            <img src="system/<?php echo $arrayOfertas[$j]['PROMOCION_IMAGEN']; ?>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <!--  Gallery Details Info -->
+                                        <div class="single_team_advisor_info">
+                                            <!-- Headline -->
+                                            <div class="team_name">
+                                                <h5>Full Name: Riya Islam</h5>
+                                                <h5>Nick Name: Riya</h5>
+                                                <h6>Designation: Trainer</h6>
+                                            </div>
+                                            <!-- Description -->
+                                            <div class="description">
+                                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                                            </div>
+                                            <!-- live preview button -->
+                                            <div class="live_preview">
+                                                <a class="btn btn-pill btn-flat-pumpkin" href="#">Contact with Riya Islam</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Empresas Section -->
+        <section>
+            <div class="de-popular-wrapper">
+                <div class="container">
+                    <h3 style="border-left-color: #9eb0ca ; border-left-style: solid;">&nbsp; Empresas</h3>
+                    <hr>
+                    <div class="de-popular-wrap">
+                        <div class="row">                    
+                            <?php 
+                            $proveedoresClass  = new proveedoresClass();
+                            $arrayProveedores = array();
+                            $arrayProveedores = $proveedoresClass->getProveedores();
+                            for ($j=0; $j < count($arrayProveedores); $j++) { 
+                                ?>
+                                <div class="col-md-6">
+                                    <div class="de-popular-place">
+                                        <div class="popular-img">
+                                            <a href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>" class="img-place" title="BIGWork">
+                                                <img src="system/<?php echo $arrayProveedores[$j]['PRO_IMAGEN_LOGO']; ?>" alt="BIGWork" title="BIGWork">
+                                            </a>
+                                        </div>
+                                        <div class="popular-info">
+                                            <div class="popular-title">
+                                                <h2>
+                                                    <a href="services/puente.php?proUid=<?php echo $arrayProveedores[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayProveedores[$j]['PRO_NOMBRE_CARPETA']; ?>"><?php echo utf8_encode($arrayProveedores[$j]['PRO_NOMBRE']); ?></a>
+                                                </h2>
+                                                <div style = 'color:#F1C40F;' class="rate-it" data-score="3" title="gorgeous"><i data-alt="1" class="fa fa-star star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="2" class="fa fa-star star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="3" class="fa fa-star star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="4" class="fa fa-star star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="5" class="fa fa-star star-on-png" title="gorgeous"></i><input name="score" type="hidden" value="2" readonly=""></div>
+                                            </div>
+                                            <div class="popular-address">
+                                                <p><i class="fa fa-phone"></i><?php echo utf8_encode($arrayProveedores[$j]['PRO_TELEFONOS']); ?></p>
+                                                <p><i class="fa fa-map-marker"></i>La Paz</p>
+                                                <p><i class="fa fa-envelope"></i><?php echo utf8_encode($arrayProveedores[$j]['PRO_EMAIL']); ?></p>         
+                                            </div>
+                                            <div style="margin-top: 20px; float:right;">
+                                                <a style="padding-left: 20px;" class="float-left" href="http://www.facebook.com/<?php echo $arrayProveedores[$j]['PRO_MESSENGER']; ?>" target="_blank"><img src="img/fb.png" width="20" height="20"></a>
+                                                    <a style="padding-left: 20px;" href="http://m.me/<?php echo $arrayProveedores[$j]['PRO_MESSENGER']; ?>" target="_blank"><img src="img/msg.png" width="20" height="20"></a>
+                                                    <a style="padding-left: 20px;" class = "float-left" href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[$j]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!" target="_blank"><img src="img/wpp.png" width="20" height="20"></a>           
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- En Empresas Section -- >
+
+                <!-- Footer Area Start -->
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <aside id="nav_menu-2" class="widget widget_nav_menu"><h2 class="widgettitle">OUR COMPANY</h2><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-73" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-73"><a href="https://directoryengine.enginethemes.com/about-us/">About Us</a></li>
+                                    <li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72"><a href="https://directoryengine.enginethemes.com/private-policy/">Private &amp; Policy</a></li>
+                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="https://directoryengine.enginethemes.com/terms-of-service/">Terms of Service</a></li>
+                                    <li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-74"><a href="https://directoryengine.enginethemes.com/blog/">Blog</a></li>
+                                </ul></div></aside>                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <aside id="text-2" class="widget widget_text"><h2 class="widgettitle">CONTACT US</h2>           <div class="textwidget"><strong>EngineThemes</strong>
+
+
+                                        <a href="mailto:contact@enginethemes.com" target="_top">contact@enginethemes.com</a>
+
+                                        <a href="https://www.enginethemes.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=https://www.enginethemes.com/&amp;source=gmail&amp;ust=1486104326989000&amp;usg=AFQjCNFfnV4yaZN-5T1fZOndLr9kh8KskA">https://www.enginethemes.com</a></div>
+                                    </aside>                </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <aside id="de-social-2" class="widget de-social"><h2 class="widgettitle">KEEP IN TOUCH</h2>         <ul class="social-list-footer">
+                                            <li><a href="https://www.facebook.com/EngineThemes/?fref=ts" class="facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i><span>FaceBook</span></a></li> 
+                                            <li><a href="https://twitter.com/enginewpthemes" class="twitter-icon"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a></li>
+                                            <li><a href="https://plus.google.com/+EngineThemes" class="google-plus-icon"><i class="fa fa-google-plus" aria-hidden="true"></i>Google plus</a></li>
+                                        </ul>
+                                    </aside>                </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <aside id="meta-3" class="widget widget_meta"><h2 class="widgettitle">Link</h2>         <ul>
+                                            <li><a href="https://directoryengine.enginethemes.com/wp-login.php?action=register">Register</a></li>           <li><a href="https://directoryengine.enginethemes.com/wp-login.php">Log in</a></li>
+                                            <li><a href="https://directoryengine.enginethemes.com/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                                            <li><a href="https://directoryengine.enginethemes.com/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                                            <li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>           </ul>
+                                        </aside>                </div>
+                                    </div>
+                                </div>
+                            </footer>
+
+                            <!-- ***** All jQuery Plugins ***** -->
+
+                            <!-- Popper js -->
+                            <script src="js/bootstrap/popper.min.js"></script>
+                            <!-- Bootstrap js -->
+                            <script src="js/bootstrap/bootstrap.min.js"></script>
+                            <!-- Plugins js -->
+                            <script src="js/include-all-plugins.js"></script>
+                            <!-- Active js -->
+                            <script src="js/active.js"></script>
+                            <!-- Active js -->
+                            <script src="js/revolution-slider-active/creative-slider-active.js"></script>
+                            <!-- Slidea Slider JS -->
+                            <script src="slidea-assets/js/gsap/tweenlite.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/gsap/plugins/css.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/gsap/easing/easepack.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/animus/animus.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/animus/presets/default.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/hammer/hammer.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/mousewheel/mousewheel.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
+                            <script src="slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
+                            <!-- Slider Active JS  -->
+                            <script src="slidea-assets/js/templates/default-slider-active.js" type="text/javascript"></script>
+                            <!-- Plugins js -->
+                            <script src="js/include-all-plugins.js"></script>
+                            <!-- Active js -->
+                            <script src="js/active.js"></script>
+                            <!-- Slider Active JS  -->
+                            <script src="slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
+
+                        </body>
+
+                        </html>

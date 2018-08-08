@@ -16,8 +16,8 @@ echo "<br>";
 $proveedoresClass  = new proveedoresClass();
 $arrayProveedores = array();
 $arrayProveedores = $proveedoresClass->getProveedores(2);
-/*echo("Proveedores") . "<br>";
-var_dump($arrayProveedores);*/
+echo("Proveedores") . "<br>";
+var_dump($arrayProveedores);
 //******************************************************
 echo "<br>";
 //*****************************************************
@@ -66,8 +66,8 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayPromociones = array();
 $arrayPromociones = $proveedoresClass->getPromociones($idProveedor);
-echo("PROMOCIONES") . "<br>";
-var_dump($arrayPromociones);
+/*echo("PROMOCIONES") . "<br>";
+var_dump($arrayPromociones);*/
 echo "<br>";
 //*****************************************************
 // ICONOS
@@ -76,7 +76,7 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayIconos = array();
 $arrayIconos = $proveedoresClass->getIconosPorProveedor($idProveedor);
-echo("ICONOS") . "<br>";
+/*echo("ICONOS") . "<br>";
 var_dump($arrayIconos);
 echo "<br>";
 //*****************************************************
@@ -87,8 +87,8 @@ $palabraClave = '';
 $ciudad = 'SCZ';
 $arrayBusqueda = array();
 $arrayBusqueda = $proveedoresClass->getBusqueda($palabraClave,$ciudad);
-echo("BUSQUEDA") . "<br>";
-var_dump($arrayBusqueda);
+/*echo("BUSQUEDA") . "<br>";
+var_dump($arrayBusqueda);*/
 echo "<br>";
 //*****************************************************
 // PROMOCION POR ID
@@ -97,8 +97,8 @@ $proveedoresClass  = new proveedoresClass();
 $promoUid = 1;
 $arrayPromocionPorId = array();
 $arrayPromocionPorId = $proveedoresClass->getPromocionPorID($promoUid);
-echo("PROMOCION POR ID") . "<br>";
-var_dump($arrayPromocionPorId);
+/*echo("PROMOCION POR ID") . "<br>";
+var_dump($arrayPromocionPorId);*/
 echo "<br>";
 
 
