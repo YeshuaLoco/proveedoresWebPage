@@ -61,7 +61,7 @@
                                     -->                                
                                 </ul>
                             </li>                                                    
-                            <li><a href="foro.php" target="_target">Productos</a></li>
+                            <li><a href="searchOferta.php" target="_target">Productos</a></li>
                             <li><a href="#contact" target="_self">Contacto</a></li>
                         </ul>
                     </div>
