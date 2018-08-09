@@ -37,6 +37,7 @@ class proveedoresClass
                          PRO_GEOLOCALIZACION,
                          PRO_RANKING,
                          PRO_TELEFONOS,
+                         PRO_DIRECCION,
                          PRO_COLOR_FONDO,
                          PRO_COLOR_LETRAS
                          PRO_ESTADO
@@ -203,7 +204,8 @@ class proveedoresClass
                          PRO_WHATSAPP,
                          PRO_MESSENGER,
                          PRO_RANKING,
-                         'PROVEEDOR' AS TIPO
+                         'PROVEEDOR' AS TIPO,
+                         PRO_DIRECCION
                   FROM proveedores
                   WHERE (PRO_NOMBRE LIKE '%$palabraClave%'
                   OR PRO_DESCRIPCION LIKE '%$palabraClave%'
@@ -224,7 +226,8 @@ class proveedoresClass
                          '' AS PRO_WHATSAPP,
                          '' AS PRO_MESSENGER,
                          '' AS PRO_RANKING,
-                         'PROMOCION' AS TIPO       
+                         'PROMOCION' AS TIPO,
+                         PRO_DIRECCION       
                   FROM proveedores_promociones PP
                   inner join proveedores P ON P.PRO_UID = PP.PRO_UID
                   WHERE (PP.PP_TITULO LIKE '%$palabraClave%'
