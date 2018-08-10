@@ -213,13 +213,13 @@ require 'services/class.functions.php';
             <div class="row">
                 <!-- Single News Area Start -->
                 <?php $arrayOfertas = array();
-                $arrayOfertas = $proveedoresClass->getPromocionPorID(1);
+                $arrayOfertas = $proveedoresClass->getPromocionPorID(2);
                 for ($j=0; $j < count($arrayOfertas); $j++) {   
                     ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single_latest_news_area m-bottom-15">
                             <div class="single_latest_news_img_area">
-                                <a href="services/puente.php?proUid=<?php echo $arrayOfertas[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayOfertas[$j]['PRO_NOMBRE']; ?>"><img style ="width:100%; height:280px" src="system/<?php echo $arrayOfertas[$j]['PROMOCION_IMAGEN']; ?>" alt=""></a>
+                                <a href="ofertadetail/index.php?offerUid=<?php echo $arrayOfertas[$j]['PROMOCION_UID']; ?>"><img style ="width:100%; height:280px" src="system/<?php echo $arrayOfertas[$j]['PROMOCION_IMAGEN']; ?>" alt=""></a>
                                 <!-- Catagory -->
                                 <a href="#" class="news-catagory bg-primary" style="font-size:25px"><?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_VALOR_DESCUENTO']); ?></a>
                             </div>
