@@ -108,7 +108,9 @@ class proveedoresClass
 
         $query = "SELECT PP.PP_TITULO AS PP_TITULO,
                          PP.PP_DESCRIPCION AS PP_DESCRIPCION,                         
-                         PP.PP_IMAGEN AS PP_IMAGEN 
+                         PP.PP_IMAGEN AS PP_IMAGEN,
+                         PP.PP_FECHA_VENCIMIENTO AS PP_FECHA_VENCIMIENTO,
+                         P.PRO_EMAIL AS PRO_EMAIL 
                   FROM proveedores P
                   INNER JOIN proveedores_promociones PP
                       ON PP.PRO_UID = P.PRO_UID

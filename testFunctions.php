@@ -47,8 +47,8 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayProveedoresPromociones = array();
 $arrayProveedoresPromociones = $proveedoresClass->getProveedoresPromociones($idProveedor);
-//echo("Proveedor - Promociones") . "<br>";
-//var_dump($arrayProveedoresPromociones);
+echo("Proveedor - Promociones") . "<br>";
+var_dump($arrayProveedoresPromociones);
 echo "<br>";
 //*****************************************************
 // PROVEEDORES - ppor categoria
