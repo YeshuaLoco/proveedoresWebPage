@@ -108,14 +108,14 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
     .spa_version .spa_service_icon {
         border-radius: 50%;
         height: 70px;
-        position: absolute;
+        position: relative;
         right: 0;
         text-align: center;
         top: 2px;
         width: 70px;
         -webkit-transition-duration: 500ms;
         transition-duration: 500ms;
-    }
+    }   
 </style>   
 </head>
 
@@ -178,6 +178,28 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
                         <p>Maprial, líder en Cochabamba.</p>
                     </div>
                     <?php echo utf8_encode($arrayProveedores[0]['PRO_DESCRIPCION']);?>
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <div class="spa_service_icon" style="color: rgb(0, 0, 0); background-color: rgb(255, 235, 59);">
+                                <i class="fa fa-leaf" aria-hidden="true"></i>
+                            </div>    
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="spa_service_icon" style="color: rgb(0, 0, 0); background-color: rgb(255, 235, 59);">
+                                <i class="fa fa-leaf" aria-hidden="true"></i>
+                            </div>    
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="spa_service_icon" style="color: rgb(0, 0, 0); background-color: rgb(255, 235, 59);">
+                                <i class="fa fa-leaf" aria-hidden="true"></i>
+                            </div>    
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="spa_service_icon" style="color: rgb(0, 0, 0); background-color: rgb(255, 235, 59);">
+                                <i class="fa fa-leaf" aria-hidden="true"></i>
+                            </div>    
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -185,74 +207,74 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
     <!-- ***** About Us Area End ***** -->
 
     <!-- ***** Spa Service Area Start ***** -->
-        <section class="spa_version spa_services_area section_padding_100" id="service">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center">
-                            <h2 style="font-family: Impact">Best Services</h2>
+    <section class="spa_version spa_services_area section_padding_100" id="service">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h2 style="font-family: Impact">Best Services</h2>
+                        <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-5">
+                    <!--  Why Choose Text Area Start  -->
+                    <div class="spa_services_text_area">
+                        <div class="spa_single_service">
+                            <h4>Stone Massage</h4>
                             <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                            <div class="spa_service_icon">
+                                <i class="fa fa-leaf" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="spa_single_service">
+                            <h4>Aroma Therapy</h4>
+                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                            <div class="spa_service_icon">
+                                <i class="fa fa-bed" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="spa_single_service">
+                            <h4>Reflexology</h4>
+                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                            <div class="spa_service_icon">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="row align-items-center">
-                    <div class="col-md-6 col-lg-5">
-                        <!--  Why Choose Text Area Start  -->
-                        <div class="spa_services_text_area">
-                            <div class="spa_single_service">
-                                <h4>Stone Massage</h4>
-                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                <div class="spa_service_icon">
-                                    <i class="fa fa-leaf" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="spa_single_service">
-                                <h4>Aroma Therapy</h4>
-                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                <div class="spa_service_icon">
-                                    <i class="fa fa-bed" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="spa_single_service">
-                                <h4>Reflexology</h4>
-                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                <div class="spa_service_icon">
-                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                                </div>
+                <!--  Why Choose Image Area Start  -->
+                <div class="col-md-6 col-lg-5 ml-lg-auto">
+                    <div class="spa_services_text_area second_area">
+                        <div class="spa_single_service">
+                            <h4>Oil Massage</h4>
+                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                            <div class="spa_service_icon">
+                                <i class="fa fa-umbrella" aria-hidden="true"></i>
                             </div>
                         </div>
-                    </div>
-                    <!--  Why Choose Image Area Start  -->
-                    <div class="col-md-6 col-lg-5 ml-lg-auto">
-                        <div class="spa_services_text_area second_area">
-                            <div class="spa_single_service">
-                                <h4>Oil Massage</h4>
-                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                <div class="spa_service_icon">
-                                    <i class="fa fa-umbrella" aria-hidden="true"></i>
-                                </div>
+                        <div class="spa_single_service">
+                            <h4>Facial Treatment</h4>
+                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                            <div class="spa_service_icon">
+                                <i class="fa fa-smile-o" aria-hidden="true"></i>
                             </div>
-                            <div class="spa_single_service">
-                                <h4>Facial Treatment</h4>
-                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                <div class="spa_service_icon">
-                                    <i class="fa fa-smile-o" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="spa_single_service">
-                                <h4>Health Coaching</h4>
-                                <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
-                                <div class="spa_service_icon">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                </div>
+                        </div>
+                        <div class="spa_single_service">
+                            <h4>Health Coaching</h4>
+                            <p>Classy is completely creative, clean &amp; 100% responsive website. Put your business into next level with classy.</p>
+                            <div class="spa_service_icon">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- ***** Spa Service Area End ***** -->
+        </div>
+    </section>
+    <!-- ***** Spa Service Area End ***** -->
 
     <!-- ***** Our Classes Area Start ***** -->
     <section class="our_classes_area fitness_version section_padding_100" id="offers">
@@ -339,7 +361,7 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
     </div>
     <!-- ***** Trainer Details Area End ***** -->
 
-     
+
 
     <section class="gallery_area clearfix" id="gallery">
         <div class="container">
@@ -390,87 +412,87 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
                     </div>
                 </div>
             <?php } ?>
-            </div>            
-        </section>
-        <!-- >>>>>>>>>>>>>>>> Project area end <<<<<<<<<<<<<<<< -->
+        </div>            
+    </section>
+    <!-- >>>>>>>>>>>>>>>> Project area end <<<<<<<<<<<<<<<< -->
 
-   
-        <!-- Classy Rating -->
-        <div class="classy-star-three">
-            <fieldset>
-                <input type="radio" id="c-star5" name="rating" value="5"><label for="star5" title="Outstanding">5 stars</label>
-                <input type="radio" id="c-star4" name="rating" value="4"><label for="star4" title="Very Good">4 stars</label>
-                <input type="radio" id="c-star3" name="rating" valuSe="3"><label for="star3" title="Good">3 stars</label>
-                <input type="radio" id="c-star2" name="rating" value="2"><label for="star2" title="Poor">2 stars</label>
-                <input type="radio" id="c-star1" name="rating" value="1"><label for="star1" title="Very Poor">1 star</label>
-            </fieldset>
-        </div>
 
-        <div class="map_contact_address_area">
-            <!-- Map Area Start -->
-            <div class="map_area" id="googleMap"></div>
-        </div>
-        <!-- ***** Message Now Area Start ***** -->   
+    <!-- Classy Rating -->
+    <div class="classy-star-three">
+        <fieldset>
+            <input type="radio" id="c-star5" name="rating" value="5"><label for="star5" title="Outstanding">5 stars</label>
+            <input type="radio" id="c-star4" name="rating" value="4"><label for="star4" title="Very Good">4 stars</label>
+            <input type="radio" id="c-star3" name="rating" valuSe="3"><label for="star3" title="Good">3 stars</label>
+            <input type="radio" id="c-star2" name="rating" value="2"><label for="star2" title="Poor">2 stars</label>
+            <input type="radio" id="c-star1" name="rating" value="1"><label for="star1" title="Very Poor">1 star</label>
+        </fieldset>
+    </div>
 
-        <div class="sticky-container">
-            <ul class="sticky" style="background-color:black;">
-                <li style="background-color: #45619D; border-radius: 0px;">
-                    <a style = "background-color: black !important;" href="http://www.facebook.com/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
-                        <img src="../img/social-icons/if_facebook.png" width="32" height="32">
-                    </a>
-                </li>
-                <li style="background-color: #427AB6;border-radius: 0px;">
-                    <a style = "background-color: black !important;" href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
-                        <img src="../img/social-icons/if_messenger.png" width="32" height="32">                
-                    </a>
-                </li>
-                <li style="background-color: #57BB63; border-radius: 0px;">
-                    <a style = "background-color: black !important;" href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!" target="_blank">
-                        <img src="../img/social-icons/if_whatsapp.png" width="32" height="32">
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <div class="map_contact_address_area">
+        <!-- Map Area Start -->
+        <div class="map_area" id="googleMap"></div>
+    </div>
+    <!-- ***** Message Now Area Start ***** -->   
 
-        <!-- ***** All jQuery Plugins ***** -->
+    <div class="sticky-container">
+        <ul class="sticky" style="background-color:black;">
+            <li style="background-color: #45619D; border-radius: 0px;">
+                <a style = "background-color: black !important;" href="http://www.facebook.com/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
+                    <img src="../img/social-icons/if_facebook.png" width="32" height="32">
+                </a>
+            </li>
+            <li style="background-color: #427AB6;border-radius: 0px;">
+                <a style = "background-color: black !important;" href="http://m.me/<?php echo $arrayProveedores[0]['PRO_MESSENGER']; ?>" target="_blank">
+                    <img src="../img/social-icons/if_messenger.png" width="32" height="32">                
+                </a>
+            </li>
+            <li style="background-color: #57BB63; border-radius: 0px;">
+                <a style = "background-color: black !important;" href="https://api.whatsapp.com/send?phone=<?php echo $arrayProveedores[0]['PRO_WHATSAPP']; ?>&text=Hola, quiero contactarme con ustedes!" target="_blank">
+                    <img src="../img/social-icons/if_whatsapp.png" width="32" height="32">
+                </a>
+            </li>
+        </ul>
+    </div>
 
-        <!-- jQuery (necessary for all JavaScript plugins) -->
-        <script src="../js/jquery/jquery-2.2.4.min.js"></script>
-        <!-- Popper js -->
-        <script src="../js/bootstrap/popper.min.js"></script>
-        <!-- Bootstrap js -->
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
-        <!-- Slidea Slider JS -->
-        <script src="../slidea-assets/js/gsap/tweenlite.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/gsap/plugins/css.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/gsap/easing/easepack.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/animus/animus.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/animus/presets/default.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/hammer/hammer.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/mousewheel/mousewheel.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
-        <script src="../slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
-        <!-- Slider Active JS  -->
-        <script src="../slidea-assets/js/templates/fitness-slider-active.js" type="text/javascript"></script>
-        <!-- Plugins js -->
-        <script src="../js/include-all-plugins.js"></script>
-        <!-- Active js -->
-        <script src="../js/active.js"></script>
-        <!-- Slider Active JS  -->
-        <script src="../slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
-        <!-- Google Maps js -->
-        <script src="../https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk" type="text/javascript"></script>
-        <!-- Google Maps Active js -->
-        <script src="../js/google-map/map-active.js"></script>
-        <script>
-            $('.main_header_area.sticky').css('background-color', '<?php echo $arrayProveedores[0]['PRO_COLOR_FONDO'] ?>');
-            $('.spa_version .spa_service_icon').css('color', '#000');
-            $('.spa_version .spa_service_icon').css('background-color', '#ffeb3b');
-            $('.gallery_area.spa_version').css('background-color', '#ffeb3b');    
-            $('.single_advisor').css('background-color', '#ffeb3b');             
-            $('.spa_version .single_advisor_details_info > h4, .spa_version .single_advisor_details_info > p').css('color', '#000'); 
-        </script>
-    </body>
+    <!-- ***** All jQuery Plugins ***** -->
 
-    </html>
+    <!-- jQuery (necessary for all JavaScript plugins) -->
+    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <!-- Slidea Slider JS -->
+    <script src="../slidea-assets/js/gsap/tweenlite.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/gsap/plugins/css.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/gsap/easing/easepack.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/animus/animus.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/animus/presets/default.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/hammer/hammer.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/mousewheel/mousewheel.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/vimeo/vimeo.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/youtube/youtube.js" type="text/javascript"></script>
+    <script src="../slidea-assets/js/slidea/slidea.js" type="text/javascript"></script>
+    <!-- Slider Active JS  -->
+    <script src="../slidea-assets/js/templates/fitness-slider-active.js" type="text/javascript"></script>
+    <!-- Plugins js -->
+    <script src="../js/include-all-plugins.js"></script>
+    <!-- Active js -->
+    <script src="../js/active.js"></script>
+    <!-- Slider Active JS  -->
+    <script src="../slidea-assets/js/templates/spa-slider-active.js" type="text/javascript"></script>
+    <!-- Google Maps js -->
+    <script src="../https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk" type="text/javascript"></script>
+    <!-- Google Maps Active js -->
+    <script src="../js/google-map/map-active.js"></script>
+    <script>
+        $('.main_header_area.sticky').css('background-color', '<?php echo $arrayProveedores[0]['PRO_COLOR_FONDO'] ?>');
+        $('.spa_version .spa_service_icon').css('color', '#000');
+        $('.spa_version .spa_service_icon').css('background-color', '#ffeb3b');
+        $('.gallery_area.spa_version').css('background-color', '#ffeb3b');    
+        $('.single_advisor').css('background-color', '#ffeb3b');             
+        $('.spa_version .single_advisor_details_info > h4, .spa_version .single_advisor_details_info > p').css('color', '#000'); 
+    </script>
+</body>
+
+</html>
