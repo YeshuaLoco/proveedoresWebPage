@@ -139,6 +139,22 @@ require 'services/class.functions.php';
         box-shadow: 0 3px 40px 0 #000;
         border: 1px solid rgba(83,166,233,0.15);
     }
+
+    .bg-primary {
+        background-color: green!important;
+    }
+    .single_latest_news_area .single_latest_news_img_area .news-catagory {
+        padding: 11.5px 10px;
+        color: #fff;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        z-index: 2;
+        font-size: 12px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+
 </style>
 </head>
 
@@ -203,9 +219,9 @@ require 'services/class.functions.php';
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single_latest_news_area m-bottom-15">
                             <div class="single_latest_news_img_area">
-                                <a href="services/puente.php?proUid=<?php echo $arrayOfertas[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayOfertas[$j]['PRO_NOMBRE']; ?>"><img style ="width:100%;" src="system/<?php echo $arrayOfertas[$j]['PROMOCION_IMAGEN']; ?>" alt=""></a>
+                                <a href="services/puente.php?proUid=<?php echo $arrayOfertas[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $arrayOfertas[$j]['PRO_NOMBRE']; ?>"><img style ="width:100%; height:280px" src="system/<?php echo $arrayOfertas[$j]['PROMOCION_IMAGEN']; ?>" alt=""></a>
                                 <!-- Catagory -->
-                                <a href="#" class="news-catagory bg-primary" style="font-size:20px"><?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_VALOR_DESCUENTO']); ?></a>
+                                <a href="#" class="news-catagory bg-primary" style="font-size:25px"><?php echo utf8_encode($arrayOfertas[$j]['PROMOCION_VALOR_DESCUENTO']); ?></a>
                             </div>
                             <div class="single_latest_news_text_area p-15" style ="font-size:18px; background-color: #fff!important">
                                 <a class="news-headline" href="services/puente.php?proUid=<?php echo $aProveedorCat[$j]['PRO_UID']; ?>&proNombreCarpeta=<?php echo $aProveedorCat[$j]['PRO_NOMBRE']; ?>"><?php echo utf8_encode($arrayOfertas[$j]['PRO_NOMBRE']); ?></a>
