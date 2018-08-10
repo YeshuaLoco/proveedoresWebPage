@@ -7,6 +7,7 @@ require 'class.functions.php';
 <?php 
 $proveedoresClass  = new proveedoresClass();
 $arrayProveedores = array();
+$proUid = $_SESSION['proUid'];
 $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
     //var_dump($_SESSION);
 ?>
@@ -286,17 +287,18 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
                     </div>
                 </div>
             </div>
-            <?php
-            $arrayOfertas = array();
-            $arrayOfertas = $proveedoresClass->getPromociones(2);
-            for ($j=0; $j < count($arrayOfertas); $j++) { 
-                ?>
+           
                 <div class="row">
                     <div class="col-12">
                         <div class="fitness_class_slides">
+                             <?php
+                            $arrayOfertas = array();
+                            $arrayOfertas = $proveedoresClass->getPromociones($proUid);
+                            for ($j=0; $j < count($arrayOfertas); $j++) { 
+                            ?>
                             <!-- Single Class Slide -->
                             <div class="single_class_slide">
-                                <img src="../system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
+                                <img style = "height: 266px; width:611px" src="../system/<?php echo $arrayOfertas[$j]['PP_IMAGEN']; ?>" alt="">
                                 <div class="time">
                                     <p>2x1</p>
                                 </div>
@@ -309,11 +311,10 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, at.</p>
                                 </div>
                             </div>
-
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
         </div>
     </section>
     <!-- ***** Our Classes Area End ***** -->
@@ -362,8 +363,56 @@ $arrayProveedores = $proveedoresClass->getProveedores($_SESSION['proUid']);
     <!-- ***** Trainer Details Area End ***** -->
 
 
+    <section class="gallery_area section_padding_100_70 clearfix" id="gallery">
 
-    <section class="gallery_area clearfix" id="gallery">
+        <div class="container clearfix">
+            <div class="gallery_menu">
+                <div class="text-center portfolio-menu">
+                    <button class="active btn btn-md" type="button" data-filter="*">all</button>
+                    <button class="btn btn-md" type="button" data-filter=".web">design</button>
+                    <button class="btn btn-md" type="button" data-filter=".art">Art</button>
+                    <button class="btn btn-md" type="button" data-filter=".bra">Branding</button>
+                    <button class="btn btn-md" type="button" data-filter=".app">App</button>
+                </div>
+            </div>
+
+            <div class="row portfolio-column">
+
+                <?php
+                    $arrayProveedoresGaleria = array();
+                    $arrayProveedoresGaleria = $proveedoresClass->getProveedoresGaleria($proUid);
+                    for ($j=0; $j < count($arrayProveedoresGaleria); $j++) {                                             
+                ?>
+                <!-- Single gallery Item Start -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 column_single_gallery_item app m-bottom-30">
+                    <img src="../system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>" alt="">
+                    <div class="hover_overlay">
+                        <div class="classy-table">
+                            <div class="classy-table-cell">
+                                <div class="gallery_info">
+                                    <h6>Creative Work</h6>
+                                    <p>Popup View</p>
+                                </div>
+                                <div class="more_details text-center">
+                                    <a class="gallery_img" href="../system/<?php echo $arrayProveedoresGaleria[$j]['PG_IMAGEN']; ?>"><i class="pe-7s-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+                
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="#" class="btn btn-pill btn-warning m-bottom-30">Load More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="gallery_area clearfix" id="">
         <div class="container">
             <div class="row">
                 <div class="col-12">

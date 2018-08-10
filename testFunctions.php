@@ -37,8 +37,8 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayProveedoresGaleria = array();
 $arrayProveedoresGaleria = $proveedoresClass->getProveedoresGaleria($idProveedor);
-echo("Proveedor - Galeria") . "<br>";
-var_dump($arrayProveedoresGaleria);
+/*echo("Proveedor - Galeria") . "<br>";
+var_dump($arrayProveedoresGaleria);*/
 echo "<br>";
 //*****************************************************
 // PROVEEDORES - PROMOCIONES
@@ -47,8 +47,8 @@ $proveedoresClass  = new proveedoresClass();
 $idProveedor = 2;
 $arrayProveedoresPromociones = array();
 $arrayProveedoresPromociones = $proveedoresClass->getProveedoresPromociones($idProveedor);
-echo("Proveedor - Promociones") . "<br>";
-var_dump($arrayProveedoresPromociones);
+/*echo("Proveedor - Promociones") . "<br>";
+var_dump($arrayProveedoresPromociones);*/
 echo "<br>";
 //*****************************************************
 // PROVEEDORES - ppor categoria
@@ -97,8 +97,8 @@ $proveedoresClass  = new proveedoresClass();
 $promoUid = 1;
 $arrayPromocionPorId = array();
 $arrayPromocionPorId = $proveedoresClass->getPromocionPorID($promoUid);
-/*echo("PROMOCION POR ID") . "<br>";
-var_dump($arrayPromocionPorId);*/
+echo("PROMOCION POR ID") . "<br>";
+var_dump($arrayPromocionPorId);
 echo "<br>";
 
 
